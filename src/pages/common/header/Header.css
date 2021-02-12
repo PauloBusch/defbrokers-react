@@ -4,20 +4,20 @@ header {
   height: var(--menu-heigth);
 }
 
-nav {
+header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#mobile {
+header #mobile {
   transition: all .2s;
   font-size: 40px;
   cursor: pointer;
   display: none;
 }
 
-#mobile:hover {
+header #mobile:hover {
   background-color: #007bff3a;
 }
 
@@ -28,7 +28,7 @@ nav {
     border-bottom: 2px solid var(--blue);
   }
 
-  #mobile {
+  header #mobile {
     padding: 19px 25px;
     display: block;
   }

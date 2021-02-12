@@ -3,23 +3,20 @@ import './Menu.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Menu extends Component {
-  extractPhoneNumber(phone) {
-    const numbers = phone.replace(/\D/g, '');
-    return `55${numbers}`;
-  }
+import { generateAddContactLink } from '../../whatsapp/Whatsapp';
 
+class Menu extends Component {
   render() {
-    const { phone } = this.props;
+    const { whatsapp } = this.props;
 
     return (
-      <ul>
+      <ul className="menu">
         <li><a href="./">Imóveis</a></li>
         <li><a href="#quem-somos">A DEF Brokers</a></li>
         <li className="phone">
-          <a href={ `https://wa.me/${this.extractPhoneNumber(phone)}` } target="_blank">
+          <a href={ generateAddContactLink(whatsapp) } target="_blank">
             <i className="fab fa-whatsapp"></i>
-            { phone }
+            { whatsapp }
           </a>
         </li>
       </ul>

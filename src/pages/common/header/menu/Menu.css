@@ -1,4 +1,6 @@
-ul {
+.menu {
+  margin: 0;
+  padding: 0;
   z-index: 1;
   flex-basis: 70%;
   display: flex;
@@ -7,8 +9,8 @@ ul {
   align-items: center;
 } 
 
-ul li a,
-ul li a i {
+.menu li a,
+.menu li a i {
   color: black;
   padding: 15px 10px;
   display: inline-block;
@@ -18,21 +20,21 @@ ul li a i {
   line-height: 18px;
 }
 
-ul li a:hover {
+.menu li a:hover {
   color: var(--blue);
 }
 
-ul li a:hover > i {
+.menu li a:hover > i {
   color: var(--blue);
 }
 
-ul li a:hover ~ .dropdown {
+.menu li a:hover ~ .dropdown {
   transform: scaleY(1);
 }
 
 
 @media only screen and (max-width: 1000px) { 
-  ul {
+  .menu {
     z-index: 2;
     width: 100%;
     opacity: .2;
@@ -46,23 +48,23 @@ ul li a:hover ~ .dropdown {
     transition: all .3s;
   }
 
-  ul.show {
+  .menu.show {
     opacity: 1;
     transform: scaleY(1);
   }
 
-  ul li {
+  .menu li {
     width: 100%;
     background-color: white;
     border-bottom: 1px solid var(--blue);
   }
 
-  ul li a {
+  .menu li a {
     width: 100%;
   }
 
-  ul li a,
-  ul li a i {
+  .menu li a,
+  .menu li a i {
     padding: 0px;
     min-height: 90px;
     line-height: 90px;
@@ -74,7 +76,7 @@ ul li a:hover ~ .dropdown {
     font-weight: bold;
   }
   
-  ul li a:hover ~ .dropdown {
+  .menu li a:hover ~ .dropdown {
     display: none;
     transform: scaleY(0);
   }
