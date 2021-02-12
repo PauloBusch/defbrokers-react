@@ -9,10 +9,8 @@ import Logo from '../logo/Logo';
 
 class Footer extends Component {
   render() {
-    const { email, whatsapp } = this.props;
+    const { name, email, whatsapp } = this.props;
     const year = Date.now;
-
-    console.log(whatsapp);
 
     return (
       <footer>
@@ -34,7 +32,7 @@ class Footer extends Component {
           </li>        
           <li className="about">
             <h3>INSTITUCIONAL</h3>
-            <a href="#quem-somos">A DEF Brokers</a>
+            <a href="#quem-somos">{ name }</a>
             <a href="#quem-somos">Nossos valores</a>
             <a href="join-work.html">Trabalhe Conosco</a>
             <a href="#">Anuncie seu Imóvel</a>

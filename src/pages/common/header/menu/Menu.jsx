@@ -7,12 +7,12 @@ import { generateAddContactLink } from '../../whatsapp/Whatsapp';
 
 class Menu extends Component {
   render() {
-    const { whatsapp } = this.props;
+    const { name, whatsapp } = this.props;
 
     return (
       <ul className="menu">
         <li><a href="./">Imóveis</a></li>
-        <li><a href="#quem-somos">A DEF Brokers</a></li>
+        <li><a href="#quem-somos">{ name }</a></li>
         <li className="phone">
           <a href={ generateAddContactLink(whatsapp) } target="_blank">
             <i className="fab fa-whatsapp"></i>

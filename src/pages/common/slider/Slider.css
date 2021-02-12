@@ -1,0 +1,50 @@
+.slider {
+  position: relative;
+  overflow: hidden;
+  height: calc(100vh - 80px);
+}
+
+.slider ol,
+.slider ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slider .slides {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  transition: all .8s;
+  transition-timing-function: ease-out;
+}
+
+.slider .slides:hover ~ .actions {
+  opacity: 1;
+}
+
+.slider .indicators {
+  position: absolute;
+  padding: 0;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slider .actions {
+  opacity: 0;
+  width: 100%;
+  top: 50%;
+  z-index: 1;
+  position: absolute;
+}
+
+.slider .actions:hover {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 900px) {
+  .slider {
+    height: calc(70vw * 0.5);
+  }
+}
