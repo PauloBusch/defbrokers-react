@@ -1,0 +1,86 @@
+.immobile {
+  flex-basis: 20%;
+  background-color: white;
+  min-width: 300px;
+  margin: 15px;
+  cursor: pointer;
+  border: 1px solid rgb(156, 156, 156);
+}
+
+.immobile .img {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.immobile .price h2 {
+  color: black;
+}
+
+.immobile .price h4,
+.immobile .price h2 {
+  display: inline-block;
+}
+
+.immobile .detail {
+  text-align: center;
+  padding: 35px;
+}
+
+.immobile .caracteristics h5,
+.immobile .detail h2,
+.immobile .detail h3,
+.immobile .detail h4 {
+  margin: 5px 0;
+  color: var(--gray)
+}
+
+.immobile .detail h3 {
+  letter-spacing: 2px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.immobile .caracteristics {
+  padding: 20px;
+}
+
+.immobile .caracteristics {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.immobile .caracteristics span {
+  display: block;
+}
+
+.immobile .caracteristics i {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.immobile .caracteristics h5 {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 1000px) {
+  .immobile .caracteristics {
+    flex-direction: row;
+  }
+  
+  .immobile .img {
+    height: 200px;
+  }
+
+  .immobile .detail {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .immobile .caracteristics {
+    flex-direction: column;
+  }
+}

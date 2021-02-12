@@ -10,8 +10,7 @@ import Logo from '../logo/Logo';
 class Footer extends Component {
   render() {
     const { name, email, whatsapp } = this.props;
-    const year = Date.now;
-
+    const year = new Date().getFullYear();
     return (
       <footer>
         <ul>

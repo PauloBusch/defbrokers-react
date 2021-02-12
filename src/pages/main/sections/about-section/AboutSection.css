@@ -1,0 +1,23 @@
+section#about {
+  display: flex;
+  justify-content: center;
+}
+
+section#about > * {
+  flex-basis: 45%;
+}
+
+section#about div.text {
+  margin-left: 35px;
+}
+
+section#about img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+section#about h3 {
+  margin-top: 0;
+  color: var(--blue);
+}
