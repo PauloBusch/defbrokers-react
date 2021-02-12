@@ -1,10 +1,10 @@
 import './App.css';
 
 import React from 'react';
+import Header from './common/header/Header';
 
 export default props => (
   <div>
-    App
-    <i className="fa fa-calendar-check-o"></i>
+    <Header />
   </div>
 );

@@ -1,0 +1,35 @@
+header {
+  box-sizing: border-box;
+  padding: 0 5%;
+  height: var(--menu-heigth);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#mobile {
+  transition: all .2s;
+  font-size: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+#mobile:hover {
+  background-color: #007bff3a;
+}
+
+
+@media only screen and (max-width: 1000px) {
+  header {
+    padding: 0 0 0 5%;
+    border-bottom: 2px solid var(--blue);
+  }
+
+  #mobile {
+    padding: 19px 25px;
+    display: block;
+  }
+}

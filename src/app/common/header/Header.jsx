@@ -1,0 +1,18 @@
+import './Header.css';
+
+import React from 'react';
+
+import Logo from '../logo/Logo';
+import Menu from './menu/Menu';
+
+export default props => (
+  <header>
+    <nav>
+      <div>
+        <Logo />
+        <i id="mobile" className="fas fa-bars toggle-menu"></i>
+      </div>
+      <Menu />
+    </nav>
+  </header>
+);
