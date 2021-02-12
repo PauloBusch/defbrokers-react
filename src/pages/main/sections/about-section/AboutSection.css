@@ -1,4 +1,9 @@
 section#about {
+  min-height: calc(100vh - 280px);
+  padding: 50px 5%;
+}
+
+section#about {
   display: flex;
   justify-content: center;
 }

@@ -3,9 +3,9 @@ import './Footer.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import FixedButton from '../fixed-button/FixedButton';
-import { generateSendMessageLink, generateAddContactLink } from '../whatsapp/Whatsapp';
-import Logo from '../logo/Logo';
+import FixedButton from '../../common/fixed-button/FixedButton';
+import { generateSendMessageLink, generateAddContactLink } from '../../common/whatsapp/Whatsapp';
+import Logo from '../../common/logo/Logo';
 
 class Footer extends Component {
   render() {

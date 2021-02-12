@@ -3,7 +3,7 @@ import './Menu.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { generateAddContactLink } from '../../whatsapp/Whatsapp';
+import { generateAddContactLink } from '../../../common/whatsapp/Whatsapp';
 
 class Menu extends Component {
   render() {

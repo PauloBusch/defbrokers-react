@@ -2,7 +2,7 @@ import './AboutSection.css';
 
 import React from 'react';
 
-import Section from '../../../common/section/Section';
+import Section from '../../../../common/section/Section';
 
 export default () => (
   <Section id="about">

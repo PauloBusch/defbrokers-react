@@ -2,7 +2,7 @@ import './ImmobileSection.css';
 
 import React from 'react';
 
-import Section from '../../../common/section/Section';
+import Section from '../../../../common/section/Section';
 import ImmobileCard from '../../cards/immobile-cards/ImmobileCard';
 
 export default props => {

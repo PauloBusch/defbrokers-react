@@ -3,9 +3,9 @@ import './FilterSection.css';
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
-import Section from '../../../common/section/Section';
-import Select from '../../../common/fields/select/Select';
-import Input from '../../../common/fields/input/Input';
+import Section from '../../../../common/section/Section';
+import Select from '../../../../common/fields/select/Select';
+import Input from '../../../../common/fields/input/Input';
 
 const INITIAL_VALUES = {
   type: 'aluguel',

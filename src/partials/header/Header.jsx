@@ -2,7 +2,7 @@ import './Header.css';
 
 import React from 'react';
 
-import Logo from '../logo/Logo';
+import Logo from '../../common/logo/Logo';
 import Menu from './menu/Menu';
 
 export default props => (

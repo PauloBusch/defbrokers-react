@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Header from '../common/header/Header';
-import Footer from '../common/footer/Footer';
-import Slider from '../common/slider/Slider';
+import Header from '../../partials/header/Header';
+import Footer from '../../partials/footer/Footer';
+import Slider from '../../common/slider/Slider';
 import FilterSection from './sections/filter-section/FilterSection';
 import AboutSection from './sections/about-section/AboutSection';
 import ImmobileSection from './sections/immobile-section/ImmobileSection';
