@@ -3,7 +3,7 @@ import { reducer as formReducer } from 'redux-form';
 
 import ContactReducer from './ContactReducer';
 import SliderReducer from './SliderReducer';
-import SectionsReducer from './SectionsReducer';
+import SectionsReducer from '../pages/main/ImmobileReducer';
 
 const rootReducer = combineReducers({
   contact: ContactReducer,

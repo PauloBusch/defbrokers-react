@@ -1,4 +1,4 @@
-const INITIAL_STATE = [
+export const INITIAL_STATE = [
   {
     title: 'Casas e Condomínios Fechados',
     cards: [
@@ -76,7 +76,7 @@ const INITIAL_STATE = [
         name: 'Chateau Provence',
         uf: 'GO',
         city: 'Senador Canedo',
-        tipo: 'Venda',
+        type: 'Venda',
         price: 1699000.0,
         image: 'images/immobiles/imovel1.webp',
         caracteristics: {
@@ -92,7 +92,7 @@ const INITIAL_STATE = [
         name: 'Chateau Provence',
         uf: 'GO',
         city: 'Senador Canedo',
-        tipo: 'Venda',
+        type: 'Venda',
         price: 100000.0,
         image: 'images/immobiles/product.png',
         caracteristics: {
@@ -108,7 +108,7 @@ const INITIAL_STATE = [
         name: 'Chateau Provence',
         uf: 'GO',
         city: 'Senador Canedo',
-        tipo: 'Venda',
+        type: 'Venda',
         price: 1699000.0,
         image: 'images/immobiles/product.png',
         caracteristicas: {
@@ -124,7 +124,7 @@ const INITIAL_STATE = [
         name: 'Chateau Provence',
         uf: 'GO',
         city: 'Senador Canedo',
-        tipo: 'Venda',
+        type: 'Venda',
         price: 1699000.0,
         image: 'images/immobiles/imovel1.webp',
         caracteristicas: {
@@ -144,7 +144,7 @@ const INITIAL_STATE = [
         name: 'Chateau Provence',
         uf: 'GO',
         city: 'Senador Canedo',
-        tipo: 'Venda',
+        type: 'Venda',
         price: 1699000.0,
         image: 'images/immobiles/product.png',
         caracteristicas: {
@@ -160,7 +160,7 @@ const INITIAL_STATE = [
         name: 'Chateau Provence',
         uf: 'GO',
         city: 'Senador Canedo',
-        tipo: 'Aluguel',
+        type: 'Aluguel',
         price: 2000.0,
         image: 'images/immobiles/imovel1.webp',
         caracteristicas: {
@@ -176,7 +176,7 @@ const INITIAL_STATE = [
         name: 'Chateau Provence',
         uf: 'GO',
         city: 'Senador Canedo',
-        tipo: 'Venda',
+        type: 'Venda',
         price: 1699000.0,
         image: 'images/immobiles/product.png',
         caracteristicas: {
@@ -192,7 +192,7 @@ const INITIAL_STATE = [
         name: 'Chateau Provence',
         uf: 'GO',
         city: 'Senador Canedo',
-        tipo: 'Aluguel',
+        type: 'Aluguel',
         price: 1000.0,
         image: 'images/immobiles/imovel1.webp',
         caracteristicas: {
@@ -205,7 +205,3 @@ const INITIAL_STATE = [
     ]
   }
 ];
-
-export default function SectionsReducer(state = INITIAL_STATE, action) {
-  return state;
-}
