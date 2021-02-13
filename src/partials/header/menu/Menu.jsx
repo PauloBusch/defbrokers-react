@@ -8,10 +8,10 @@ import { Link } from 'react-router';
 
 class Menu extends Component {
   render() {
-    const { name, whatsapp } = this.props;
+    const { name, whatsapp, open, onClick } = this.props;
 
     return (
-      <ul className="menu">
+      <ul className={ `menu ${ open ? 'show' : '' }` } onClick={ onClick }>
         <li><Link href="/">Imóveis</Link></li>
         <li><Link to="/#about">{ name }</Link></li>
         <li className="phone">
