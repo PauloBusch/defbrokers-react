@@ -36,8 +36,8 @@ class FilterSection extends Component {
             <Field name="type" component={ Select } placeholder="Tipo" options={ types }/>
           </div>
           <div className="row">
-            <Field name="startValue" component={ Input } type="number" className="form-control"/>
-            <Field name="endValue" component={ Input } type="number" className="form-control"/>
+            <Field name="startValue" component={ Input } placeholder="Valor Inicial" type="number" className="form-control"/>
+            <Field name="endValue" component={ Input } placeholder="Valor Final" type="number" className="form-control"/>
           </div>
           <SubmitButton text="PESQUISAR"/>
         </form>

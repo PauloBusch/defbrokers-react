@@ -27,7 +27,7 @@ export const INITIAL_STATE = [
         type: 'Aluguel',
         price: 5000.0,
         image: 'images/immobiles/imovel1.webp',
-        caracteristicas: {
+        caracteristics: {
           badrooms: 4,
           bathrooms: 6,
           parkingSpaces: 3,
@@ -43,7 +43,7 @@ export const INITIAL_STATE = [
         type: 'Venda',
         price: 1699000.0,
         image: 'images/immobiles/product.png',
-        caracteristicas: {
+        caracteristics: {
           badrooms: 4,
           bathrooms: 6,
           parkingSpaces: 3,
@@ -59,7 +59,7 @@ export const INITIAL_STATE = [
         type: 'Venda',
         price: 150000.0,
         image: 'images/immobiles/product.png',
-        caracteristicas: {
+        caracteristics: {
           badrooms: 4,
           bathrooms: 6,
           bparkingSpaces: 3,
@@ -111,7 +111,7 @@ export const INITIAL_STATE = [
         type: 'Venda',
         price: 1699000.0,
         image: 'images/immobiles/product.png',
-        caracteristicas: {
+        caracteristics: {
           badrooms: 4,
           bathrooms: 6,
           bparkingSpaces: 3,
@@ -127,7 +127,7 @@ export const INITIAL_STATE = [
         type: 'Venda',
         price: 1699000.0,
         image: 'images/immobiles/imovel1.webp',
-        caracteristicas: {
+        caracteristics: {
           badrooms: 4,
           bathrooms: 6,
           bparkingSpaces: 3,
@@ -147,7 +147,7 @@ export const INITIAL_STATE = [
         type: 'Venda',
         price: 1699000.0,
         image: 'images/immobiles/product.png',
-        caracteristicas: {
+        caracteristics: {
           badrooms: 4,
           bathrooms: 6,
           bparkingSpaces: 3,
@@ -163,7 +163,7 @@ export const INITIAL_STATE = [
         type: 'Aluguel',
         price: 2000.0,
         image: 'images/immobiles/imovel1.webp',
-        caracteristicas: {
+        caracteristics: {
           badrooms: 4,
           bathrooms: 6,
           bparkingSpaces: 3,
@@ -179,7 +179,7 @@ export const INITIAL_STATE = [
         type: 'Venda',
         price: 1699000.0,
         image: 'images/immobiles/product.png',
-        caracteristicas: {
+        caracteristics: {
           badrooms: 4,
           bathrooms: 6,
           bparkingSpaces: 3,
@@ -195,7 +195,7 @@ export const INITIAL_STATE = [
         type: 'Aluguel',
         price: 1000.0,
         image: 'images/immobiles/imovel1.webp',
-        caracteristicas: {
+        caracteristics: {
           badrooms: 4,
           bathrooms: 6,
           bparkingSpaces: 3,

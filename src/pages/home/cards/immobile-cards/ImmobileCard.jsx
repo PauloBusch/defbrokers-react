@@ -4,6 +4,7 @@ import React from 'react';
 
 export default props => {
   const { data } = props;
+  const { caracteristics } = data;
 
   return (
     <li className="immobile">
@@ -19,10 +20,10 @@ export default props => {
         </div>
       </div>
       <div className="caracteristics">
-        <span><i className="fas fa-check"></i> <h5><strong>{ data.quartos }</strong> quartos</h5></span>
-        <span><i className="fas fa-check"></i> <h5><strong>{ data.banheiros }</strong> banheiros</h5></span>
-        <span><i className="fas fa-check"></i> <h5><strong>{ data.vagasGaragem }</strong> vagas na garagem</h5></span>
-        <span><i className="fas fa-check"></i> <h5><strong>{ data.areaConstruida }</strong> área construída</h5></span>
+        <span><i className="fas fa-check"></i> <h5><strong>{ caracteristics.badrooms }</strong> quartos</h5></span>
+        <span><i className="fas fa-check"></i> <h5><strong>{ caracteristics.bathrooms }</strong> banheiros</h5></span>
+        <span><i className="fas fa-check"></i> <h5><strong>{ caracteristics.parkingSpaces }</strong> vagas na garagem</h5></span>
+        <span><i className="fas fa-check"></i> <h5><strong>{ caracteristics.area }</strong> área construída</h5></span>
       </div>
     </li>
   );

@@ -33,7 +33,7 @@ export default class Slider extends Component {
     if (this.state.direction === PREV) return this.prevSlide();
   }
 
-  goSlide(index) {
+  goSlide(index, manual) {
     const { isFirst, isLast } = this.stateButtons(index);
     this.setState({ 
       ...this.state, 
@@ -42,22 +42,21 @@ export default class Slider extends Component {
       nextDisabled: isLast,
       direction: this.direction(index)
     });
+    if (manual) this.configureAnimation();
   }
 
   prevSlide(manual) {
     const { isFirst } = this.stateButtons(this.state.activeIndex);
     if (isFirst) return;
 
-    this.goSlide(this.state.activeIndex - 1);
-    if (manual) this.configureAnimation();
+    this.goSlide(this.state.activeIndex - 1, manual);
   }
 
   nextSlide(manual) {
     const { isLast } = this.stateButtons(this.state.activeIndex);
     if (isLast) return;
 
-    this.goSlide(this.state.activeIndex + 1);
-    if (manual) this.configureAnimation();
+    this.goSlide(this.state.activeIndex + 1, manual);
   }
 
   stateButtons(index) {
@@ -88,7 +87,7 @@ export default class Slider extends Component {
           { slides.map((s, i) => <Slide key={ i } image={ s.image } active={ i === activeIndex } position={ s.position }/>) }
         </ul>
         <ol className="indicators">
-          { slides.map((s, i) => <Indicator key={ i } active={ i === activeIndex } onClick={ () => this.goSlide(i) }/>) }
+          { slides.map((s, i) => <Indicator key={ i } active={ i === activeIndex } onClick={ () => this.goSlide(i, true) }/>) }
         </ol>
         <div className="actions">
           <ButtonPrev disabled={ this.state.prevDisabled } onClick={ () => this.prevSlide(true) } />
