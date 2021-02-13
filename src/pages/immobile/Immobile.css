@@ -13,7 +13,7 @@ section#immobile-detail .row {
   margin: 0;
 }
 
-section#immobile-detail .row>div:first-of-type {
+section#immobile-detail .row > div:first-of-type {
   margin: 15px 0;
   margin-right: 15px;
   flex-basis: 70%;
@@ -22,5 +22,9 @@ section#immobile-detail .row>div:first-of-type {
 @media only screen and (max-width: 1000px) {
   section#immobile-detail .row {
     flex-direction: column;
+  }
+  
+  section#immobile-detail .row > div:first-of-type {
+    margin-right: 0;
   }
 }

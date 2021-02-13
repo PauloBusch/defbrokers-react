@@ -29,8 +29,9 @@
 }
 
 .differentials {
+  margin: 0;
+  padding-left: 25px;
   list-style: outside;
-  margin-left: 25px;
 }
 
 .differentials li {
@@ -40,5 +41,16 @@
 @media only screen and (max-width: 1000px) {
   .immobile-info {
     margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .immobile-data {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .immobile-data div {
+    padding: 0 5px;
   }
 }

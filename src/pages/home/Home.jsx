@@ -1,3 +1,5 @@
+import './Home.css';
+
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -18,7 +20,7 @@ class Main extends Component {
     const { slides, sections, timeTransition, search } = this.props;
 
     return (
-      <div>
+      <div id="home">
         <Slider slides={ slides } timeTransition={ timeTransition } />
         <main>
           <FilterSection onSubmit={ search }/>

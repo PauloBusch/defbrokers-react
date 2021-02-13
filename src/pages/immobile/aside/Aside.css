@@ -39,3 +39,9 @@
 .immobile-asside h2 {
   color: black;
 }
+
+@media only screen and (max-width: 1000px) {
+  .immobile-asside .row {
+    flex-direction: row !important;
+  }
+}

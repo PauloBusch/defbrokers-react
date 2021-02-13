@@ -21,10 +21,17 @@
   cursor: pointer;
 }
 
-.galery .slider {
-  height: 500px;
+.galery .slider,
+.galery .slide .image {
+  height: 50vh;
 }
 
-.galery .slide .image {
-  height: 500px;
+@media only screen and (max-width: 450px) { 
+  .galery > ul {
+    flex-direction: column;
+  }
+
+  .galery > ul > li {
+    flex-basis: auto;
+  }
 }

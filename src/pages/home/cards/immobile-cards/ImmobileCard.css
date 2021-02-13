@@ -86,6 +86,10 @@
   .immobile .detail {
     padding: 10px;
   }
+
+  .immobile {
+    min-width: auto !important;
+  }
 }
 
 @media only screen and (max-width: 700px) {

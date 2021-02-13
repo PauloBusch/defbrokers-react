@@ -1,0 +1,6 @@
+@media only screen and (max-width: 900px) {
+  #home .slider, 
+  #home .slide .image {
+    height: calc(70vw * 0.5);
+  }
+}

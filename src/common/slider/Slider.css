@@ -29,6 +29,9 @@
   bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .slider .actions {
@@ -41,10 +44,4 @@
 
 .slider .actions:hover {
   opacity: 1;
-}
-
-@media only screen and (max-width: 900px) {
-  .slider {
-    height: calc(70vw * 0.5);
-  }
 }

@@ -8,7 +8,7 @@ import Menu from './menu/Menu';
 export default props => (
   <header>
     <nav>
-      <div>
+      <div className="main">
         <Logo />
         <i id="mobile" className="fas fa-bars toggle-menu"></i>
       </div>
