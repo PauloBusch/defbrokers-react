@@ -1,13 +1,14 @@
 header {
   box-sizing: border-box;
-  padding: 0 5%;
   height: var(--menu-heigth);
 }
 
 header nav {
+  padding: 0 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.246);
 }
 
 header #mobile {

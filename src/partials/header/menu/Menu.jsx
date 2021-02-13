@@ -11,8 +11,8 @@ class Menu extends Component {
 
     return (
       <ul className="menu">
-        <li><a href="./">Imóveis</a></li>
-        <li><a href="#quem-somos">{ name }</a></li>
+        <li><a href="/">Imóveis</a></li>
+        <li><a href="/#about">{ name }</a></li>
         <li className="phone">
           <a href={ generateAddContactLink(whatsapp) } target="_blank">
             <i className="fab fa-whatsapp"></i>

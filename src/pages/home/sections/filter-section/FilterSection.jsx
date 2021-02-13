@@ -6,6 +6,7 @@ import { reduxForm, Field } from 'redux-form';
 import Section from '../../../../common/section/Section';
 import Select from '../../../../common/fields/select/Select';
 import Input from '../../../../common/fields/input/Input';
+import SubmitButton from '../../../../common/buttons/submit/SubmitButton';
 
 const INITIAL_VALUES = {
   type: 'aluguel',
@@ -38,7 +39,7 @@ class FilterSection extends Component {
             <Field name="startValue" component={ Input } type="number" className="form-control"/>
             <Field name="endValue" component={ Input } type="number" className="form-control"/>
           </div>
-          <button type="submit">PESQUISAR</button>
+          <SubmitButton text="PESQUISAR"/>
         </form>
       </Section>
     );

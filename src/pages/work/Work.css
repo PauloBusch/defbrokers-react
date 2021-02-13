@@ -1,0 +1,27 @@
+#work {
+  min-height: calc(100vh - 370px);
+  padding: 30px 5% 15px 5%; 
+}
+
+#work h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+#work {
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+#work:nth-child(odd) {
+  background-color:white ;
+}
+
+#form-work {
+  box-sizing: border-box;
+  padding: 25px;
+  max-width: 500px;
+  margin: 25px auto;
+  display: block;
+  background-color: rgb(243, 243, 243);
+}
