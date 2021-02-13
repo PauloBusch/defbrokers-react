@@ -18,6 +18,11 @@
   text-decoration: none;
   font-weight: bold;
   line-height: 18px;
+  font-size: 18px;
+}
+
+.menu li a i {
+  padding: 15px 0;
 }
 
 .menu li a:hover {
@@ -69,7 +74,6 @@
     min-height: 90px;
     line-height: 90px;
     text-align: center;
-    font-size: 22px;
     color: black;
     display: inline-block;
     text-decoration: none;

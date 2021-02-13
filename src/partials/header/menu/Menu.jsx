@@ -16,7 +16,7 @@ class Menu extends Component {
         <li><Link to="/#about">{ name }</Link></li>
         <li className="phone">
           <a href={ generateAddContactLink(whatsapp) } target="_blank">
-            <i className="fab fa-whatsapp"></i>
+            <i className="fab fa-whatsapp"></i>&nbsp;
             { whatsapp }
           </a>
         </li>
