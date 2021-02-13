@@ -1,0 +1,96 @@
+.block {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.472);
+}
+
+.block.hide {
+  display: none;
+}
+
+.modal {
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.548);
+}
+
+.modal > * {
+  padding: 20px;
+}
+
+.modal .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal .header h2 {
+  margin: 0;
+}
+
+.modal .header i {
+  padding: 5px;
+  cursor: pointer;
+  transform: scale(1);
+  color: rgb(107, 107, 107);
+}
+
+.modal .header i:hover {
+  color: black;
+}
+
+.modal .body {
+  min-width: 300px;
+  max-width: 800px;
+  max-height: 500px;
+  position: relative;
+  border-top: .5px solid rgb(148, 148, 148);
+  border-bottom: .5px solid rgb(148, 148, 148);
+}
+
+.modal .footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.modal .footer button {
+  outline: none;
+  font-size: 18px;
+  padding: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-color: #0276cd;
+  transition: .2s;
+}
+
+.modal .footer button:active,
+.modal .header i:active {
+  transform: scale(0.99);
+}
+
+.modal .footer button:hover {
+  background-color: #0059b9;
+}
+
+@media only screen and (max-width: 600px) {
+  .modal .footer button {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .modal .footer button {
+    font-size: 14px;
+  }
+}

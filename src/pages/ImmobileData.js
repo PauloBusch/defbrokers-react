@@ -94,9 +94,6 @@ export const INITIAL_STATE = [
           'Espaço Gourmet com Churrasqueira',
           'Coberturas recebem melhor a luz do dia e ventilação Natural',
         ],
-        photos: [
-          'images/galery/321456df/slide2.webp',
-        ],
         caracteristics: {
           badrooms: 4,
           bathrooms: 6,

@@ -7,7 +7,7 @@ export default props => (
     <div className="image" style={
         { 
           backgroundImage: `url('${ props.image }')`,
-          backgroundPosition: props.position 
+          backgroundPosition: props.position || 'top center'
         }
       }>
     </div>

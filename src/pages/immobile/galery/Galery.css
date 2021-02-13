@@ -1,4 +1,4 @@
-.galery ul {
+.galery > ul {
   padding: 0;
   list-style: none;
   display: flex;
@@ -10,7 +10,7 @@
   font-weight: normal;
 }
 
-.galery li {
+.galery > ul > li {
   margin: 5px 0;
   flex-basis: 200px;
 }
@@ -19,4 +19,12 @@
   min-width: 150px;
   width: 100%;
   cursor: pointer;
+}
+
+.galery .slider {
+  height: 500px;
+}
+
+.galery .slide .image {
+  height: 500px;
 }

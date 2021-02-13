@@ -7,6 +7,7 @@ import Slide from './slide/Slide';
 import Indicator from './indicator/Indicator';
 import ButtonPrev from './actions/button-prev/ButtonPrev';
 import ButtonNext from './actions/button-next/ButtonNext';
+import If from '../operators/If';
 
 const INITIAL_STATE = {
   activeIndex: 0,
@@ -20,7 +21,12 @@ export default class Slider extends Component {
     super(props);
 
     this.state = INITIAL_STATE;
+    this.state.activeIndex = this.slideIndex(props.current);
     this.configureAnimation();
+  }
+
+  componentWillUnmount() {
+    if (this.animationId) clearInterval(this.animationId);
   }
 
   configureAnimation() {
@@ -71,6 +77,12 @@ export default class Slider extends Component {
     if (isLast) return PREV;
     return this.state.direction
   }
+
+  slideIndex(image) {
+    const slide = this.props.slides.find(s => s.image === image);
+    if (!slide) return 0;
+    return this.props.slides.indexOf(slide);
+  }
   
   render() {
     const { activeIndex } = this.state;
@@ -86,13 +98,17 @@ export default class Slider extends Component {
           }>
           { slides.map((s, i) => <Slide key={ i } image={ s.image } active={ i === activeIndex } position={ s.position }/>) }
         </ul>
-        <ol className="indicators">
-          { slides.map((s, i) => <Indicator key={ i } active={ i === activeIndex } onClick={ () => this.goSlide(i, true) }/>) }
-        </ol>
-        <div className="actions">
-          <ButtonPrev disabled={ this.state.prevDisabled } onClick={ () => this.prevSlide(true) } />
-          <ButtonNext disabled={ this.state.nextDisabled } onClick={ () => this.nextSlide(true) } />
-        </div>
+        <If test={ slides.length > 1 }>
+          <div>
+            <ol className="indicators">
+              { slides.map((s, i) => <Indicator key={ i } active={ i === activeIndex } onClick={ () => this.goSlide(i, true) }/>) }
+            </ol>
+            <div className="actions">
+              <ButtonPrev disabled={ this.state.prevDisabled } onClick={ () => this.prevSlide(true) } />
+              <ButtonNext disabled={ this.state.nextDisabled } onClick={ () => this.nextSlide(true) } />
+            </div>
+          </div>
+        </If>
       </div>
     );
   }
