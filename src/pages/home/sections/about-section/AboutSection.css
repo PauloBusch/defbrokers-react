@@ -9,11 +9,7 @@ section#about {
 }
 
 section#about > * {
-  flex-basis: 45%;
-}
-
-section#about div.text {
-  margin-left: 35px;
+  flex-basis: 48%;
 }
 
 section#about img {

@@ -1,4 +1,6 @@
-import { IMMOBILE_SEARCHED } from './ImmobileActionsTypes';
+import { 
+  IMMOBILE_SEARCHED
+} from './ImmobileActionsTypes';
 
 export function search(filter) {
   const startValue = filter.startValue ? parseInt(filter.startValue) : null;

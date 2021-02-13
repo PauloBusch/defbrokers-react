@@ -1,0 +1,24 @@
+.immobile-header {
+  height: 40px;
+  line-height: 40px;
+  background-color: var(--blue-dark);
+  font-weight: 500;
+  padding: 0 5%;
+  color: white;
+}
+
+.immobile-header span {
+  font-weight: bold;
+  margin-right: 5%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .immobile-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .immobile-header span {
+    margin-right: 0;
+  }
+}

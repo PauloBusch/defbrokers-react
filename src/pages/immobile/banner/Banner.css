@@ -1,0 +1,39 @@
+.banner {
+  position: relative;
+}
+
+.banner .img {
+  height: 300px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.banner .caption {
+  width: 100%;
+  position: absolute;
+  color: white;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.banner .caption > * {
+  line-height: 30px;
+}
+
+.banner .caption hr {
+  border: none;
+  background-color: white;
+  height: 2px;
+  width: 12%;
+}
+
+.banner .caption h5 {
+  text-transform: uppercase;
+}
+
+.banner .caption h2,
+.banner .caption h4,
+.banner .caption h5 {
+  margin: 0;
+}

@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { generateAddContactLink } from '../../../common/whatsapp/Whatsapp';
+import { Link } from 'react-router';
 
 class Menu extends Component {
   render() {
@@ -11,8 +12,8 @@ class Menu extends Component {
 
     return (
       <ul className="menu">
-        <li><a href="/">Imóveis</a></li>
-        <li><a href="/#about">{ name }</a></li>
+        <li><Link href="/">Imóveis</Link></li>
+        <li><Link to="/#about">{ name }</Link></li>
         <li className="phone">
           <a href={ generateAddContactLink(whatsapp) } target="_blank">
             <i className="fab fa-whatsapp"></i>

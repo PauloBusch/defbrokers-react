@@ -1,0 +1,44 @@
+.immobile-info h3 {
+  margin: 20px 0 10px 0;
+  font-weight: normal;
+}
+
+.immobile-info p {
+  line-height: 20px;
+}
+
+.immobile-data {
+  display: flex;
+  background-color: var(--grey);
+  padding: 10px;
+}
+
+.immobile-data span {
+  padding: 5px;
+}
+
+.immobile-data div {
+  display: flex;
+  padding: 0 40px 0 5px;
+  align-items: center;
+}
+
+.immobile-data i {
+  color: var(--blue-dark);
+  font-size: 25px;
+}
+
+.differentials {
+  list-style: outside;
+  margin-left: 25px;
+}
+
+.differentials li {
+  line-height: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .immobile-info {
+    margin-right: 0;
+  }
+}

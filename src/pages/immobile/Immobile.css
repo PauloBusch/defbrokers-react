@@ -1,0 +1,26 @@
+.not-found {
+  text-align: center;
+}
+
+section#immobile-detail {
+  padding: 0;
+}
+
+section#immobile-detail .row {
+  flex-wrap: nowrap;
+  display: flex;
+  padding: 0 5%;
+  margin: 0;
+}
+
+section#immobile-detail .row>div:first-of-type {
+  margin: 15px 0;
+  margin-right: 15px;
+  flex-basis: 70%;
+}
+
+@media only screen and (max-width: 1000px) {
+  section#immobile-detail .row {
+    flex-direction: column;
+  }
+}

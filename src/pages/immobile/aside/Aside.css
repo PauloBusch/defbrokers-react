@@ -1,0 +1,41 @@
+.immobile-asside {
+  margin: 15px 0;
+  flex-basis: 30%;
+  padding: 15px;
+  background-color: var(--grey);
+}
+
+.immobile-asside a {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  transition: .2s;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  background-color: var(--blue-dark);
+}
+
+.immobile-asside a:hover {
+  background-color:#1666dd;
+}
+
+.immobile-asside .row {
+  display: flex;
+  padding: 0 !important;
+  align-items: baseline;
+}
+
+.immobile-asside h2,
+.immobile-asside h3,
+.immobile-asside h4 {
+  font-weight: normal;
+  margin: 0;
+}
+
+.immobile-asside h2 {
+  color: black;
+}
