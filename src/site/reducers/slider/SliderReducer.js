@@ -8,8 +8,15 @@ const INITIAL_STATE = {
 export default function SliderReducer(state = INITIAL_STATE, action) {
   switch(action.type) {
     case SLIDER_FETCHED:
-      return { ...state, slides: action.payload.data };
+      return { ...state, slides: mapSlides(action.payload.data) };
     default: 
       return state;
   }
+}
+
+function mapSlides(slides) {
+  return slides.map(slide => ({
+    image: slide.image,
+    position: `${slide.positionY} ${slide.positionX}`
+  }));
 }

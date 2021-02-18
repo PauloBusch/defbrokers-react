@@ -93,7 +93,8 @@ export default class Slider extends Component {
         <ul className="slides" style={ 
             { 
               width: `${ slides.length * 100 }%`,
-              marginLeft: `-${ activeIndex * 100 }%`
+              marginLeft: `-${ activeIndex * 100 }%`,
+              display: slides.length > 0 ? 'flex' : 'none'
             } 
           }>
           { slides.map((s, i) => <Slide key={ i } image={ s.image } active={ i === activeIndex } position={ s.position }/>) }
