@@ -4,16 +4,15 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { search } from '../ImmobileActions';
+import { search, getList } from '../ImmobileActions';
 import Slider from '../../common/slider/Slider';
 import FilterSection from './sections/filter-section/FilterSection';
 import AboutSection from './sections/about-section/AboutSection';
 import ImmobileSection from './sections/immobile-section/ImmobileSection';
 
 class Main extends Component {
-
-  constructor(props) {
-    super(props);
+  componentWillMount() {
+    this.props.getList();
   }
 
   render() {
@@ -33,5 +32,5 @@ class Main extends Component {
 }
 
 const mapStateToProps = state => ({ ...state.slider, sections: state.sections });
-const mapDispatchToProps = dispatch => bindActionCreators({ search }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ getList, search }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

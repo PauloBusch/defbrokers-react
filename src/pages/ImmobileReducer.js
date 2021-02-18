@@ -1,29 +1,51 @@
 import { 
-  IMMOBILE_SEARCHED
+  IMMOBILE_SEARCHED,
+  IMMOBILE_FETCHED,
 } from './ImmobileActionsTypes';
-import { INITIAL_STATE } from './ImmobileData';
 
-export default function (state = INITIAL_STATE, action) {
+export default function (state = [], action) {
   switch(action.type) {
+    case IMMOBILE_FETCHED:
     case IMMOBILE_SEARCHED: 
-      const filtred = [];
-      for (const section of INITIAL_STATE) {
-        const immobiles = filterImmobiles(section.immobiles, action.payload);
-        if (immobiles.length === 0) continue;
-        const cloneSection = Object.assign(new Object(), section);
-        cloneSection.immobiles = immobiles;
-        filtred.push(cloneSection);
-      }
-      return filtred;
+      return getSectionsByImmobiles(action.payload.data);
     default: 
       return state;
   }
 }
 
-function filterImmobiles(immobiles, filter) {
-  return immobiles.filter(card => {
-    return card.type.toLowerCase() === filter.type 
-      && (!filter.startValue || card.price >= filter.startValue)
-      && (!filter.endValue || card.price <= filter.endValue);
-  });
+function getSectionsByImmobiles(immobiles) {
+  return getSections(immobiles).map(section => ({
+    title: section,
+    immobiles: immobiles
+      .filter(immobile => immobile.section === section)
+      .map(immobile => ({
+        id: immobile._id,
+        immobileType: immobile.type,
+        realtor: immobile.realtorPhone,
+        name: immobile.name,
+        uf: immobile.address ? immobile.address.uf : null,
+        city: immobile.address ? immobile.address.city : null,
+        type: immobile.operation,
+        price: immobile.price,
+        image: immobile.image,
+        description: immobile.description,
+        differentials: immobile.differentials,
+        photos: immobile.photos,
+        caracteristics: {
+          badrooms: immobile.badrooms,
+          bathrooms: immobile.bathrooms,
+          parkingSpaces: immobile.parkingSpaces,
+          area: immobile.area
+        }
+      }))
+  }));
+}
+
+function getSections(immobiles) {
+  const sections = [];
+  for (const immobile of immobiles) {
+    if (sections.some(s => s === immobile.section)) continue;
+    sections.push(immobile.section);
+  }
+  return sections
 }

@@ -1,9 +1,15 @@
+import { CONTACT_FETCHED } from './ContactActionsTypes';
 const INITIAL_STATE = {
-  name: 'A DEF Brokers',
-  whatsapp: '(62) 99253-7258',
-  email: 'contato@defbrokers.com.br'
+  name: null,
+  whatsapp: null,
+  email: null
 };
 
 export default function ContactReducer(state = INITIAL_STATE, action) {
-  return state;
+  switch(action.type) {
+    case CONTACT_FETCHED: 
+      return action.payload.data;
+    default: 
+      return state;
+  } 
 }
