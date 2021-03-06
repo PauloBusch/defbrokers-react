@@ -1,0 +1,12 @@
+:root{
+  --admin-menu-height: 60px;
+}
+
+.container-admin .main-admin {
+  flex-grow: 1;
+}
+
+.container-admin .row-admin {
+  height: calc(100vh - var(--admin-menu-height));
+  display: flex;
+}

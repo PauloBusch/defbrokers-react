@@ -19,10 +19,6 @@
   transition-timing-function: ease-out;
 }
 
-.slider .slides:hover ~ .actions {
-  opacity: 1;
-}
-
 .slider .indicators {
   position: absolute;
   padding: 0;
@@ -35,13 +31,8 @@
 }
 
 .slider .actions {
-  opacity: 0;
   width: 100%;
   top: 50%;
   z-index: 1;
   position: absolute;
-}
-
-.slider .actions:hover {
-  opacity: 1;
 }

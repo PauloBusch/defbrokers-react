@@ -13,7 +13,7 @@ class Footer extends Component {
     const { name, email, whatsapp } = this.props;
     const year = new Date().getFullYear();
     return (
-      <footer>
+      <footer className="footer-site">
         <ul>
           <li>
             <Logo />

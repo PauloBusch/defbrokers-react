@@ -21,7 +21,7 @@ export default class Header extends Component {
 
   render() {
     return (
-      <header>
+      <header className="header-site">
         <nav>
           <div className="main">
             <Logo />

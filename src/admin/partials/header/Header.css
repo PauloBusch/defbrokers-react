@@ -1,0 +1,22 @@
+.header-admin {
+  width: 100%;
+  color: white;
+  background-color: var(--blue);
+  padding: 10px;
+  height: var(--admin-menu-height);
+  box-sizing: border-box;
+  box-shadow: 0 5px 5px #d3d3d3;
+  z-index: 1;
+}
+
+.header-admin > * {
+  display: inline-block;
+}
+
+.header-admin i {
+  font-size: 2rem;
+}
+
+.header-admin h1 {
+  margin: 0 10px;
+}

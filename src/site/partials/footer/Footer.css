@@ -1,12 +1,12 @@
-footer {
+.footer-site {
   border-top: 2px solid var(--blue);
 }
 
-footer h3 {
+.footer-site h3 {
   margin-top: 0;
 }
 
-footer ul {
+.footer-site ul {
   margin: 0;
   padding: 0;
   display: flex;
@@ -14,33 +14,33 @@ footer ul {
   justify-content: space-between;
 }
 
-footer ul li {
+.footer-site ul li {
   flex-basis: 20%;
   padding: 2% 5% 0 5%;
 }
 
-footer p {
+.footer-site p {
   padding: 15px 0;
 }
 
-footer h3 {
+.footer-site h3 {
   text-transform: uppercase;
   font-weight: bold;
   color: var(--blue);
 }
 
-footer a {
+.footer-site a {
   color: var(--blue);
   padding: 3px 0;
   display: block;
   text-decoration: none;
 }
 
-footer a:hover {
+.footer-site a:hover {
   text-decoration: underline;
 }
 
-footer .bottom {
+.footer-site .bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -49,16 +49,16 @@ footer .bottom {
 }
 
 @media only screen and (max-width: 1000px) {
-  footer ul {
+  .footer-site ul {
     flex-direction: column;
   }
 
-  footer ul li {
+  .footer-site ul li {
     padding: 2% 5%;
     border-top: 1px solid rgba(0, 0, 0, 0.151);
   }
 
-  footer ul li:first-child {
+  .footer-site ul li:first-child {
     border-top: none;
   }
 }
