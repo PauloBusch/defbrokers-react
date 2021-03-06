@@ -7,11 +7,11 @@ import promise from 'redux-promise';
 
 import AdminLayout from './admin/Layout';
 import SiteLayout from './site/Layout';
-import Main from './admin/pages/main/Main';
+import Contact from './admin/pages/contact/Contact';
 import Home from './site/pages/home/Home';
 import Work from './site/pages/work/Work';
 import Immobile from './site/pages/immobile/Immobile';
-import Reducers from './site/reducers/reducers';
+import Reducers from './reducers/reducers';
 
 const store = applyMiddleware(promise)(createStore)(Reducers);
 export default props => (
@@ -23,7 +23,7 @@ export default props => (
         <Route path="immobile/:id" component={ Immobile }/>
       </Route>
       <Route path="/admin" component={ AdminLayout }>
-        <IndexRoute component={ Main }/>
+        <IndexRoute component={ Contact }/>
         <Redirect from="*" to="/admin"/>
       </Route>
       <Redirect from="*" to="/"/>

@@ -1,9 +1,8 @@
 button[type="submit"] {
   outline: none;
   font-size: 18px;
-  width: 100%;
-  padding: 15px;
-  margin-top: 15px;
+  padding: 10px;
+  margin: 5px 0;
   color: white;
   border: none;
   cursor: pointer;

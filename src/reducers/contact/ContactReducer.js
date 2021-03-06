@@ -1,3 +1,4 @@
+import { initialize } from 'redux-form';
 import { CONTACT_FETCHED } from './ContactActionsTypes';
 const INITIAL_STATE = {
   name: null,

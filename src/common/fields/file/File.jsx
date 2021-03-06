@@ -1,13 +1,14 @@
 import './File.css';
 
-import React, { Component } from 'react';
+import React from 'react';
+import FieldBase from '../FieldBase';
 
 const INITIAL_STATE = {
   file: null,
   name: ''
 };
 
-export default class File extends Component {
+export default class File extends FieldBase {
   constructor(props) {
     super(props);
 
@@ -15,7 +16,7 @@ export default class File extends Component {
     this.state = INITIAL_STATE;
   }
 
-  render() {
+  field() {
     return (
       <div className="form-control file-input" >
         <button type="button" onClick={ () => this.fileInput.click() }>{ this.props.button || 'Selecionar arquivo' }</button>

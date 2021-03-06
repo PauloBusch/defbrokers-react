@@ -1,10 +1,13 @@
-import '../FormControl.css';
-
 import React from 'react';
+import FieldBase from './../FieldBase';
 
-export default props => (
-  <textarea { ...props.input } 
-    className="form-control" 
-    placeholder={ props.placeholder }>
-  </textarea>
-);
+export default class TextArea extends FieldBase {
+  field() {
+    return (
+      <textarea { ...this.props.input } 
+        className="form-control" 
+        placeholder={ this.props.placeholder }>
+      </textarea>
+    );
+  }
+} 

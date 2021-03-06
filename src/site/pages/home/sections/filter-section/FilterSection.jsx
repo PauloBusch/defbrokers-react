@@ -7,6 +7,7 @@ import Section from '../../../../../common/section/Section';
 import Select from '../../../../../common/fields/select/Select';
 import Input from '../../../../../common/fields/input/Input';
 import SubmitButton from '../../../../../common/buttons/submit/SubmitButton';
+import Row from '../../../../../common/row/Row';
 
 const INITIAL_VALUES = {
   type: 'aluguel',
@@ -32,14 +33,20 @@ class FilterSection extends Component {
       <Section id="search">
         <form id="form-search" onSubmit={ handleSubmit }>
           <h3>Encontre seu imóvel</h3>
-          <div className="row">
-            <Field name="type" component={ Select } placeholder="Tipo" options={ types }/>
-          </div>
-          <div className="row">
-            <Field name="startValue" component={ Input } placeholder="Valor Inicial" type="number" className="form-control"/>
-            <Field name="endValue" component={ Input } placeholder="Valor Final" type="number" className="form-control"/>
-          </div>
-          <SubmitButton text="PESQUISAR"/>
+          <Row>
+            <Field name="type" placeholder="Tipo" 
+              flex="100" component={ Select } options={ types }
+            />
+          </Row>
+          <Row>
+            <Field name="startValue" placeholder="Valor Inicial" type="number"
+              flex="48" component={ Input } 
+            />
+            <Field name="endValue" placeholder="Valor Final" type="number"
+              flex="48" component={ Input } 
+            />
+          </Row>
+          <SubmitButton fill padding="15px" text="PESQUISAR"/>
         </form>
       </Section>
     );

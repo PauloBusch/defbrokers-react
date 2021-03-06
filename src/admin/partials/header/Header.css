@@ -5,8 +5,9 @@
   padding: 10px;
   height: var(--admin-menu-height);
   box-sizing: border-box;
-  box-shadow: 0 5px 5px #d3d3d3;
+  box-shadow: 0 5px 5px #0000002d;
   z-index: 1;
+  position: relative;
 }
 
 .header-admin > * {

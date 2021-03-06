@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import Footer from './partials/footer/Footer';
 import Header from './partials/header/Header';
-import { getContact } from './reducers/contact/ContactActions';
+import { getContact } from './../reducers/contact/ContactActions';
 
 class Layout extends Component {
   componentWillMount() {

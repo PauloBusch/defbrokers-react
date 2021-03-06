@@ -1,11 +1,14 @@
-import '../FormControl.css';
-
 import React from 'react';
+import FieldBase from '../FieldBase';
 
-export default props => (
-  <input { ...props.input } 
-    className="form-control" 
-    type={ props.type } 
-    placeholder={ props.placeholder }>
-  </input>
-);
+export default class Input extends FieldBase {
+  field() {
+    return (
+      <input { ...this.props.input } 
+        className="form-control" 
+        type={ this.props.type } 
+        placeholder={ this.props.placeholder }>
+      </input>
+    );
+  }
+}

@@ -7,8 +7,9 @@ import MenuItem from './menu-item/MenuItem';
 export default props => (
   <div className="sidenav">
     <Menu>
-      <MenuItem href="#" active name="Imóveis" icon="fa-house-user"/>
-      <MenuItem href="#" name="Imóveis"/>
+      <MenuItem href="#" active name="Contato" icon="fa-address-card"/>
+      <MenuItem href="#" name="Slides" icon="fa-images"/>
+      <MenuItem href="#" name="Imóveis" icon="fa-house-user"/>
     </Menu>
   </div>
 );

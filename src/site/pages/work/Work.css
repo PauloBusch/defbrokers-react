@@ -19,9 +19,18 @@
 
 #form-work {
   box-sizing: border-box;
-  padding: 25px;
+  padding: 30px;
   max-width: 500px;
   margin: 25px auto;
   display: block;
   background-color: rgb(243, 243, 243);
+}
+
+#form-work .form-field { 
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#work button[type=submit] {
+  margin-bottom: 0;
 }
