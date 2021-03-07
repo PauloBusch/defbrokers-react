@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import Footer from './partials/footer/Footer';
 import Header from './partials/header/Header';
 import { getContact } from './../reducers/contact/ContactActions';
+import Toastr from '../common/messages/toastr';
 
 class Layout extends Component {
   componentWillMount() {
@@ -17,6 +18,7 @@ class Layout extends Component {
         <Header />
         { this.props.children }
         <Footer />
+        <Toastr />
       </div>
     );
   }

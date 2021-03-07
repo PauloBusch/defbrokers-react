@@ -5,6 +5,7 @@ import React from 'react';
 import Header from './partials/header/Header';
 import Sidenav from './partials/sidenav/Sidenav';
 import Content from './partials/content/Content';
+import Toastr from '../common/messages/toastr';
 
 export default props => (
   <div className="container-admin">
@@ -14,6 +15,7 @@ export default props => (
       <Content>
         { props.children }
       </Content>
+      <Toastr />
     </div>
   </div>
 );

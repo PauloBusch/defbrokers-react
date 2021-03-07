@@ -16,6 +16,7 @@ export default class FieldBase extends Component {
   }
 
   render() {
+    const { label, name } = this.props;
     const errors = this.errors();
 
     return (
@@ -23,6 +24,7 @@ export default class FieldBase extends Component {
         className={ `form-field ${errors ? 'has-error' : ''}` }
         style={ { width: this.getWidth() } }
       >
+        { label ? <label htmlFor={ name }>{ label }</label> : false }
         { this.field() }
         { errors }
       </div>

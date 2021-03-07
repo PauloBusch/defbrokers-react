@@ -3,12 +3,18 @@
   width: auto;
 }
 
+.form-field>label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
 .form-control {
   width: 100%;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   border: 1px solid rgb(194, 194, 194);
-  padding: 10px;
+  padding: 8px;
   font-size: 18px;
   outline: none;
 }

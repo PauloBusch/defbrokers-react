@@ -1,7 +1,7 @@
 import './FilterSection.css';
 
 import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Form, Field } from 'redux-form';
 
 import Section from '../../../../../common/section/Section';
 import Select from '../../../../../common/fields/select/Select';
@@ -31,7 +31,7 @@ class FilterSection extends Component {
 
     return (
       <Section id="search">
-        <form id="form-search" onSubmit={ handleSubmit }>
+        <Form id="form-search" onSubmit={ handleSubmit }>
           <h3>Encontre seu imóvel</h3>
           <Row>
             <Field name="type" placeholder="Tipo" 
@@ -47,7 +47,7 @@ class FilterSection extends Component {
             />
           </Row>
           <SubmitButton fill padding="15px" text="PESQUISAR"/>
-        </form>
+        </Form>
       </Section>
     );
   }
