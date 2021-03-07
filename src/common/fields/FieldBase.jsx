@@ -16,12 +16,12 @@ export default class FieldBase extends Component {
   }
 
   render() {
-    const { label, name } = this.props;
+    const { label, name, className } = this.props;
     const errors = this.errors();
 
     return (
       <div 
-        className={ `form-field ${errors ? 'has-error' : ''}` }
+        className={ `form-field ${errors ? 'has-error' : ''} ${className}` }
         style={ { width: this.getWidth() } }
       >
         { label ? <label htmlFor={ name }>{ label }</label> : false }

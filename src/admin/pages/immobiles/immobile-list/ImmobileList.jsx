@@ -12,6 +12,7 @@ import monetary from './../../../../common/formatters/monetary';
 import { getList, remove } from './../../../reducers/immobile/ImmobileActions';
 import image from './image/image';
 import Modal from '../../../../common/modal/Modal';
+import FixedButton from '../../../../common/buttons/fixed/FixedButton';
 
 const INITIAL_STATE = { selectedImmobile: null, showConfirmRemove: false };
 
@@ -79,14 +80,15 @@ class ImmobileList extends Component {
               pallet={ tablePallet } rows={ immobiles }
               columns={ tableColumns } actions={ tableActions } 
             />
-            <Modal title="Confirmação" 
-              actions={ modalActions } show={ this.state.showConfirmRemove } 
-              onClose={ this.closeModal }
-            >
-              Deseja realmente remover o imóvel?
-            </Modal>
           </CardContent>
         </Card>
+        <Modal title="Confirmação" 
+          actions={ modalActions } show={ this.state.showConfirmRemove } 
+          onClose={ this.closeModal }
+        >
+          Deseja realmente remover o imóvel?
+        </Modal>
+        <FixedButton title="Cadastrar" icon="plus" color="var(--blue)"/>
       </div>
     );
   }

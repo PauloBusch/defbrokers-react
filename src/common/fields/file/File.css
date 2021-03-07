@@ -1,5 +1,6 @@
 .file-input {
   padding: 0;
+  display: flex;
 }
 
 .file-input label {
