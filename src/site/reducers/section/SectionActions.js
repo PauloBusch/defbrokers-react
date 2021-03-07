@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { 
-  IMMOBILE_SEARCHED,
-  IMMOBILE_FETCHED
-} from './ImmobileActionsTypes';
+  SECTION_SEARCHED,
+  SECTION_FETCHED
+} from './SectionActionsTypes';
 
 const BASE_URL = 'http://localhost:3003/api/immobiles';
 
 export function getList() {
   const request = axios.get(BASE_URL);
   return { 
-    type: IMMOBILE_FETCHED,
+    type: SECTION_FETCHED,
     payload: request
   };
 }
@@ -21,7 +21,7 @@ export function search(filter) {
   if (filter.type) params.push(`operation__equals=${filter.type}`);
   const request = axios.get(`${BASE_URL}?${params.join('&')}`);
   return {
-    type: IMMOBILE_SEARCHED,
+    type: SECTION_SEARCHED,
     payload: request
   };
 }

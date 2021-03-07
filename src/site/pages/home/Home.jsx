@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { search, getList } from '../../reducers/immobile/ImmobileActions';
+import { search, getList } from '../../reducers/section/SectionActions';
 import { getSlides } from '../../reducers/slider/SliderActions';
 import Slider from '../../../common/slider/Slider';
 import FilterSection from './sections/filter-section/FilterSection';

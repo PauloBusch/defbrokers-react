@@ -48,13 +48,17 @@
   color: black;
 }
 
+.modal .header i:active {
+  transform: scale(0.99);
+}
+
 .modal .body {
   min-width: 30vw;
   max-width: 50vw;
   max-height: 50vh;
   position: relative;
-  border-top: .5px solid rgb(148, 148, 148);
-  border-bottom: .5px solid rgb(148, 148, 148);
+  border-top: .2px solid rgb(148, 148, 148);
+  border-bottom: .2px solid rgb(148, 148, 148);
 }
 
 .modal .footer {
@@ -63,41 +67,17 @@
   justify-content: flex-end;
 }
 
-.modal .footer button {
-  outline: none;
-  font-size: 18px;
-  padding: 10px;
-  color: white;
-  border: none;
-  cursor: pointer;
-  background-color: #0276cd;
-  transition: .2s;
+.modal .footer button:first-of-type {
+  margin-left: 0;
 }
 
-.modal .footer button:active,
-.modal .header i:active {
-  transform: scale(0.99);
-}
-
-.modal .footer button:hover {
-  background-color: #0059b9;
+.modal .footer button:last-of-type {
+  margin-right: 0;
 }
 
 @media only screen and (max-width: 1000px) {
   .modal .body {
     max-width: 80vw;
     max-height: 80vh;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .modal .footer button {
-    font-size: 15px;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .modal .footer button {
-    font-size: 14px;
   }
 }

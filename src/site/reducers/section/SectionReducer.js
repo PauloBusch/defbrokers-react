@@ -1,12 +1,12 @@
 import { 
-  IMMOBILE_SEARCHED,
-  IMMOBILE_FETCHED,
-} from './ImmobileActionsTypes';
+  SECTION_SEARCHED,
+  SECTION_FETCHED,
+} from './SectionActionsTypes';
 
 export default function (state = [], action) {
   switch(action.type) {
-    case IMMOBILE_FETCHED:
-    case IMMOBILE_SEARCHED: 
+    case SECTION_FETCHED:
+    case SECTION_SEARCHED: 
       return getSectionsByImmobiles(action.payload.data);
     default: 
       return state;

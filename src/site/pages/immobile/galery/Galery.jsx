@@ -38,7 +38,7 @@ export default class Galery extends Component {
         </ul>
 
         <If test={ !!this.state.photo }>
-          <Modal title="Galeria" show="true" handleClose={ this.closeModal }>
+          <Modal title="Galeria" show="true" onClose={ this.closeModal }>
             <Slider slides={ images.map(i => ({ image: i })) } current={ this.state.photo } timeTransition={ 5000 } />
           </Modal>
         </If>

@@ -4,6 +4,7 @@ import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import promise from 'redux-promise';
+import thunk from 'redux-thunk';
 
 import AdminLayout from './admin/Layout';
 import SiteLayout from './site/Layout';
@@ -12,8 +13,10 @@ import Home from './site/pages/home/Home';
 import Work from './site/pages/work/Work';
 import Immobile from './site/pages/immobile/Immobile';
 import Reducers from './reducers/reducers';
+import SlideList from './admin/pages/slides/slide-list/SlideList';
+import ImmobileList from './admin/pages/immobiles/immobile-list/ImmobileList';
 
-const store = applyMiddleware(promise)(createStore)(Reducers);
+const store = applyMiddleware(thunk, promise)(createStore)(Reducers);
 export default props => (
   <Provider store={ store }>
     <Router history={ hashHistory }>
@@ -22,11 +25,11 @@ export default props => (
         <Route path="work" component={ Work }/>
         <Route path="immobile/:id" component={ Immobile }/>
       </Route>
-      <Route path="/admin" component={ AdminLayout }>
+      <Route exact path="/admin" component={ AdminLayout }>
         <IndexRoute component={ Contact }/>
-        <Redirect from="*" to="/admin"/>
+        <Route path="slides" component={ SlideList }/>
+        <Route path="immobiles" component={ ImmobileList }/>
       </Route>
-      <Redirect from="*" to="/"/>
     </Router>
   </Provider>
 );

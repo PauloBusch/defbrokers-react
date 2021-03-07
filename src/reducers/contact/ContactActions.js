@@ -24,7 +24,7 @@ export function update(values) {
       toastr.success('Sucesso', 'Contato atualizado com sucesso!');
       return resp;
     })
-    .catch(() => toastr.success('Erro', 'Falha ao atualizar contato!'));
+    .catch(() => toastr.error('Erro', 'Falha ao atualizar contato!'));
   return {
     type: CONTACT_UPDATED,
     payload: request
