@@ -7,6 +7,6 @@
 }
 
 .container-admin .row-admin {
-  height: calc(100vh - var(--admin-menu-height));
+  min-height: calc(100vh - var(--admin-menu-height));
   display: flex;
 }

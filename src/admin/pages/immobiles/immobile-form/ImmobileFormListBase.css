@@ -1,0 +1,30 @@
+.immobile-form-list {
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.immobile-form-list>label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.immobile-form-list:first-of-type {
+  padding-left: 0;
+}
+
+.immobile-form-list:last-of-type {
+  padding-right: 0;
+}
+
+.immobile-form-list table td, 
+.immobile-form-list table th {
+  padding: 5px 10px;
+}
+
+.immobile-form-list table td:last-of-type {
+  display: flex;
+  padding: 15px;
+  margin-top: 10px;
+}

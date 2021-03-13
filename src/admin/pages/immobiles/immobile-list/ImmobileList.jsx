@@ -3,6 +3,7 @@ import './ImmobileList.css';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import Card from '../../../partials/card/Card';
 import CardContent from '../../../partials/card/card-content/CardContent';
@@ -47,6 +48,12 @@ class ImmobileList extends Component {
     });
   }
 
+  goToImmobile(id) {
+    const { router } = this.props;
+    const url = `${router.location.pathname}/${id}`;
+    this.props.router.push(url);
+  }
+
   render() {
     const modalActions = [
       { text: 'CANCELAR', pallet: { fill: '#c8c8c8', text: 'black' }, click: this.closeModal.bind(this) },
@@ -76,7 +83,7 @@ class ImmobileList extends Component {
             <h2>Imóveis</h2>
           </CardHeader>
           <CardContent padding="0">
-            <Table 
+            <Table rowClick={ immobile => this.goToImmobile(immobile._id) }
               pallet={ tablePallet } rows={ immobiles }
               columns={ tableColumns } actions={ tableActions } 
             />
@@ -96,4 +103,4 @@ class ImmobileList extends Component {
 
 const mapStateToProps = state => ({ immobiles: state.immobiles });
 const mapDispatchToProps = dispatch => bindActionCreators({ getList, remove }, dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(ImmobileList);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ImmobileList));

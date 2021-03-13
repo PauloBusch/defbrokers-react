@@ -5,7 +5,7 @@ import Action from './action/Action';
 
 export default class Table extends Component {
   getColumnHeaders() {
-    const { columns } = this.props;
+    const { columns, flexAction } = this.props;
     if (!columns || !Array.isArray(columns)) return false;
     const heads = columns.map(c => 
       <th 
@@ -15,11 +15,11 @@ export default class Table extends Component {
       { c.label }
       </th>
     );
-    if (this.hasActions()) heads.push(<th key="actions" style={ { width: '2%' } }></th>);
+    if (this.hasActions()) heads.push(<th key="actions" style={ { width: `${flexAction || 2 }%` } }>Ações</th>);
     return <tr>{ heads }</tr>;
   }
 
-  getColumnValues(row) {
+  getColumnValues(row, index) {
     const { columns, rowClick } = this.props;
     if (!columns || !Array.isArray(columns)) return false;
     return columns.map(c => {
@@ -27,14 +27,14 @@ export default class Table extends Component {
       const { format, template } = c;
       const Template = template;
       const text = format ? format(raw) : raw;
-      const content = template ? <Template row={ row } column={ c } text={ text }/> : text;
+      const content = template ? <Template row={ row } index={ index } column={ c } text={ text } /> : text;
       return (
         <td key={ c.prop } onClick={ () => rowClick ? rowClick(row) : false }>{ content }</td>
       );
     });
   }
 
-  getActionValues(row) {
+  getActionValues(row, index) {
     if (!this.hasActions()) return false;
     const { actions } = this.props;
     return (
@@ -43,7 +43,7 @@ export default class Table extends Component {
               key={ a.icon || a.title } 
               color={ a.color }
               icon={ a.icon } title={ a.title } 
-              onClick={ () => a.click(row) }
+              onClick={ () => a.click(row, index) }
             />
           ) 
         }
@@ -57,12 +57,12 @@ export default class Table extends Component {
   }
 
   getRowValues() {
-    const { rows } = this.props;
+    const { rows, rowClick } = this.props;
     if (!rows || !Array.isArray(rows)) return false;
-    return rows.map(r => (
-      <tr key={ r._id }>
-        { this.getColumnValues(r) }
-        { this.getActionValues(r) }
+    return rows.map((r, i) => (
+      <tr key={ r._id || i } style={ { cursor: rowClick ? 'pointer' : 'default' } }>
+        { this.getColumnValues(r, i) }
+        { this.getActionValues(r, i) }
       </tr>
     ));
   }

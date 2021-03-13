@@ -10,6 +10,8 @@ import Select from './../../../../common/fields/select/Select';
 import phone from './../../../../common/validators/phone';
 import TextArea from './../../../../common/fields/textarea/TextArea';
 import File from '../../../../common/fields/file/File';
+import DifferentialList from './differential-list/DifferentialList';
+import PhotoList from './photo-list/PhotoList';
 
 class ImmobileForm extends FormBase {
   constructor(props) {
@@ -18,6 +20,15 @@ class ImmobileForm extends FormBase {
   }
 
   form() {
+    const differentials = [
+      'Casa com picina'
+    ];
+
+    const photos = [
+      'images/immobiles/imovel1.webp',
+      'images/immobiles/imovel2.webp'
+    ];
+
     const types = ['CASA', 'KITNET', 'CONDOMÍNIO', 'SOBRADO'];
     const sections = ['Sessão 1', 'Sessão 2'];
     const operations = ['COMPRA', 'ALUGUEL'];
@@ -76,6 +87,10 @@ class ImmobileForm extends FormBase {
           <Field name="description" label="Descrição" placeholder="Informe a descrição"
             flex="100" component={ TextArea } validate={ required }
           />
+        </Row>
+        <Row>
+          <DifferentialList rows={ differentials }/>
+          <PhotoList rows={ photos }/>
         </Row>
       </Form>
     );
