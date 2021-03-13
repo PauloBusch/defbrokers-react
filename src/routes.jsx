@@ -16,6 +16,7 @@ import Reducers from './reducers/reducers';
 import SlideList from './admin/pages/slides/slide-list/SlideList';
 import ImmobileList from './admin/pages/immobiles/immobile-list/ImmobileList';
 import ImmobileForm from './admin/pages/immobiles/immobile-form/ImmobileForm';
+import SlideForm from './admin/pages/slides/slide-form/SlideForm';
 
 const store = applyMiddleware(thunk, promise)(createStore)(Reducers);
 export default props => (
@@ -29,6 +30,7 @@ export default props => (
       <Route exact path="/admin" component={ AdminLayout }>
         <IndexRoute component={ Contact }/>
         <Route path="slides" component={ SlideList }/>
+        <Route path="slides/:id" component={ SlideForm }/>
         <Route path="immobiles" component={ ImmobileList }/>
         <Route path="immobiles/:id" component={ ImmobileForm }/>
       </Route>
