@@ -1,18 +1,35 @@
 import './SlideForm.css';
 
 import React from 'react';
+import { withRouter } from 'react-router';
 import { Field, Form, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import required from './../../../../common/validators/required';
 import Select from './../../../../common/fields/select/Select';
 import Row from '../../../../common/row/Row';
 import File from './../../../../common/fields/file/File';
 import FormBase from './../../../../common/form/FormBase';
+import { create, update, loadForm, submitForm } from './../../../../reducers/slider/SliderActions';
+
+const DEFAULT_STATE = {
+  image: null,
+  positionX: 'center',
+  positionY: 'center'
+};
 
 class SlideForm extends FormBase { 
   constructor(props) {
     super(props);
+    if (!this.id) {
+      this.props.initialize(DEFAULT_STATE);
+    }
     this.title = 'Slide';
+  }
+
+  getData(id) {
+    this.props.loadForm(id);
   }
 
   form() {
@@ -26,8 +43,9 @@ class SlideForm extends FormBase {
       { text: 'Centro', value: 'center' },
       { text: 'Embaixo', value: 'bottom' }
     ];
+    const { handleSubmit } = this.props;
     return (
-      <Form id="slide-form" onSubmit={ () => { } }>
+      <Form onSubmit={ handleSubmit(this.submit) }>
         <Row justify="flex-start">
           <Field name="image" className="image-field" label="Imagem" button="Selecionar" placeholder="Selecione uma imagem"
             flex="25" component={ File } validate={ required }
@@ -44,4 +62,6 @@ class SlideForm extends FormBase {
   }
 }
 
-export default reduxForm({ form: 'slide-form' })(SlideForm);
+const slideForm = reduxForm({ form: 'slide-form' })(withRouter(SlideForm));
+const mapDispatchToProps = dispatch => bindActionCreators({ create, update, submitForm, loadForm }, dispatch);
+export default connect(null, mapDispatchToProps)(slideForm);

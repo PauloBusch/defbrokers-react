@@ -30,9 +30,11 @@ export default props => (
       <Route exact path="/admin" component={ AdminLayout }>
         <IndexRoute component={ Contact }/>
         <Route path="slides" component={ SlideList }/>
-        <Route path="slides/:id" component={ SlideForm }/>
+        <Route path="slides/new" component={ SlideForm }/>
+        <Route path="slides/edit/:id" component={ SlideForm }/>
         <Route path="immobiles" component={ ImmobileList }/>
-        <Route path="immobiles/:id" component={ ImmobileForm }/>
+        <Route path="immobiles/new" component={ ImmobileForm }/>
+        <Route path="immobiles/edit/:id" component={ ImmobileForm }/>
       </Route>
     </Router>
   </Provider>

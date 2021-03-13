@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { toastr } from 'react-redux-toastr';
-import { submit } from 'redux-form';
+import { submit, initialize } from 'redux-form';
 
 import { CONTACT_FETCHED, CONTACT_UPDATED } from './ContactActionsTypes';
 
@@ -28,5 +28,15 @@ export function update(values) {
   return {
     type: CONTACT_UPDATED,
     payload: request
+  };
+}
+
+export function loadForm() {
+  return dispatch => {
+    axios.get(BASE_URL)
+      .then((resp) => { 
+        dispatch(initialize('contact-form', resp.data));
+      })
+      .catch(() => toastr.error('Erro', 'Falha ao carregar o contato!'));
   };
 }

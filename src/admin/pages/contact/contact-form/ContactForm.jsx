@@ -8,17 +8,13 @@ import phone from '../../../../common/validators/phone';
 import required from './../../../../common/validators/required';
 import Row from '../../../../common/row/Row';
 import Input from '../../../../common/fields/input/Input';
-import { getContact } from './../../../../reducers/contact/ContactActions';
+import { getContact, loadForm } from './../../../../reducers/contact/ContactActions';
 
 class ContactForm extends Component {
   constructor(props) {
     super(props);
     
-    this.props.initialize(undefined);
-  }
-
-  componentWillMount() {
-    this.props.getContact();
+    this.props.loadForm();
   }
 
   render() {
@@ -44,5 +40,5 @@ class ContactForm extends Component {
 
 const contactForm = reduxForm({ form: 'contact-form', destroyOnUnmount: false })(ContactForm);
 const mapStateToProps = state => ({ initialValues: state.contact });
-const mapDispatchToProps = dispatch => bindActionCreators({ getContact }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ getContact, loadForm }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(contactForm);

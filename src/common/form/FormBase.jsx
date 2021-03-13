@@ -8,23 +8,51 @@ import CardFooter from '../../admin/partials/card/card-footer/CardFooter';
 import SubmitButton from '../buttons/submit/SubmitButton';
 
 export default class FormBase extends Component { 
-  getTitle() {
+  constructor(props) {
+    super(props);
+
+    this.submit = this.submit.bind(this);
+    this.goBack = this.goBack.bind(this);
+    this.id = this.getId();
     if (this.id) {
-      if (this.data)
-        return `Edição do ${this.title}`;
-      else 
-        return 'Carregando...';
+      this.data = this.getData(this.id);
     }
+  }
+
+  form() { }
+
+  getId() {
+    const { router } = this.props;
+    const { pathname } = router.location;
+    const regex = /\/edit\//;
+    const index = pathname.search(regex);
+    if (index === -1) return null;
+    return pathname.substring(index).replace(regex, '');
+  }
+
+  getData(id) { }
+
+  getTitle() {
+    if (this.id)
+      return `Edição do ${this.title}`;
     
     return `Cadastro de ${this.title}`;
   }
 
-  save() {
+  submit(values) {
+    if (this.id)
+      this.props.update(values);
+    else
+      this.props.create(values);
 
+    this.goBack();
   }
 
   goBack() {
-
+    const { router } = this.props;
+    const { pathname } = router.location;
+    const url = pathname.substring(0, pathname.search(/\/edit\/|\/new/));
+    this.props.router.push(url);
   }
 
   render() {
@@ -39,12 +67,10 @@ export default class FormBase extends Component {
             { this.form() }
           </CardContent>
           <CardFooter>
-            <SubmitButton text="SALVAR" onClick={ this.save }/>
+            <SubmitButton text="SALVAR" onClick={ this.props.submitForm }/>
           </CardFooter>
         </Card>
       </div>
     );
   }
-
-  form() { }
 }

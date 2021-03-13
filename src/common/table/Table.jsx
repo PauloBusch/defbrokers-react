@@ -2,6 +2,7 @@ import './Table.css';
 
 import React, { Component } from 'react';
 import Action from './action/Action';
+import Empty from './empty/Empty';
 
 export default class Table extends Component {
   getColumnHeaders() {
@@ -77,6 +78,12 @@ export default class Table extends Component {
   }
   
   render() {
+    const { rows } = this.props;
+    if (!rows || !rows.length) 
+      return (
+        <Empty message={ this.props.emptyMessage } />
+      );
+
     return (
       <table className="table-grid">
         <thead style={ this.getHeadStyles() }>

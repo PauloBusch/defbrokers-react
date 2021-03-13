@@ -22,6 +22,7 @@ class SlideList extends Component {
 
     this.state = INITIAL_STATE;
     this.closeModal = this.closeModal.bind(this);
+    this.goNew = this.goNew.bind(this);
   }
 
   componentWillMount() {
@@ -47,9 +48,15 @@ class SlideList extends Component {
     });
   }
 
-  goToSlide(id) {
+  goEdit(id) {
     const { router } = this.props;
-    const url = `${router.location.pathname}/${id}`;
+    const url = `${router.location.pathname}/edit/${id}`;
+    this.props.router.push(url);
+  }
+
+  goNew() {
+    const { router } = this.props;
+    const url = `${router.location.pathname}/new`;
     this.props.router.push(url);
   }
 
@@ -92,7 +99,7 @@ class SlideList extends Component {
             <h2>Slides</h2>
           </CardHeader>
           <CardContent padding="0">
-            <Table rowClick={ slide => this.goToSlide(slide._id) }
+            <Table rowClick={ slide => this.goEdit(slide._id) }
               pallet={ tablePallet } rows={ slides }
               columns={ tableColumns } actions={ tableActions } 
             />
@@ -104,7 +111,7 @@ class SlideList extends Component {
         >
           Deseja realmente remover o slide?
         </Modal>
-        <FixedButton title="Cadastrar" icon="plus" color="var(--blue)"/>
+        <FixedButton title="Cadastrar" onClick={ this.goNew } icon="plus" color="var(--blue)"/>
       </div>
     );    
   }

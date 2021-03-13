@@ -1,7 +1,9 @@
 import './ImmobileForm.css';
-import { Field, Form, reduxForm } from 'redux-form';
 
 import React from 'react';
+import { withRouter } from 'react-router';
+import { Field, Form, reduxForm } from 'redux-form';
+
 import FormBase from '../../../../common/form/FormBase';
 import Row from '../../../../common/row/Row';
 import Input from './../../../../common/fields/input/Input';
@@ -97,4 +99,4 @@ class ImmobileForm extends FormBase {
   }
 }
 
-export default reduxForm({ form: 'immobile-form' })(ImmobileForm);
+export default reduxForm({ form: 'immobile-form' })(withRouter(ImmobileForm));
