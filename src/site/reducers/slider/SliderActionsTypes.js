@@ -1,1 +1,0 @@
-export const SLIDER_FETCHED = 'SLIDER_FETCHED';

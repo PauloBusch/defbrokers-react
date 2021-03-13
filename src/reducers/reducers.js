@@ -4,7 +4,7 @@ import { reducer as toastrReducer } from 'react-redux-toastr';
 
 
 import ContactReducer from './contact/ContactReducer';
-import SliderReducer from '../site/reducers/slider/SliderReducer';
+import SliderReducer from './slider/SliderReducer';
 import SectionsReducer from '../site/reducers/section/SectionReducer';
 import ImmobileReducer from '../admin/reducers/immobile/ImmobileReducer';
 

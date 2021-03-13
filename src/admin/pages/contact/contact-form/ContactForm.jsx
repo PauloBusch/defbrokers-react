@@ -14,7 +14,11 @@ class ContactForm extends Component {
   constructor(props) {
     super(props);
     
-    this.props.initialize(props.contact);
+    this.props.initialize(undefined);
+  }
+
+  componentWillMount() {
+    this.props.getContact();
   }
 
   render() {

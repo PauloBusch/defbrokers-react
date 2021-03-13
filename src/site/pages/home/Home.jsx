@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { search, getList } from '../../reducers/section/SectionActions';
-import { getSlides } from '../../reducers/slider/SliderActions';
+import { getSlides } from '../../../reducers/slider/SliderActions';
 import Slider from '../../../common/slider/Slider';
 import FilterSection from './sections/filter-section/FilterSection';
 import AboutSection from './sections/about-section/AboutSection';
@@ -22,7 +22,7 @@ class Main extends Component {
 
     return (
       <div id="home">
-        <Slider slides={ slides } timeTransition={ timeTransition } />
+        <Slider slides={ slides.map(s => ({ image: s.image, position: `${s.positionX} ${s.positionY}` })) } timeTransition={ timeTransition } />
         <main>
           <FilterSection onSubmit={ search }/>
           { sections.map((s, i) => <ImmobileSection key={ i } title={ s.title } immobiles={ s.immobiles }/>) }
