@@ -22,6 +22,7 @@ class SlideList extends Component {
 
     this.state = INITIAL_STATE;
     this.closeModal = this.closeModal.bind(this);
+    this.goEdit = this.goEdit.bind(this);
     this.goNew = this.goNew.bind(this);
   }
 

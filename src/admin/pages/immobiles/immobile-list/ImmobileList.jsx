@@ -23,6 +23,8 @@ class ImmobileList extends Component {
 
     this.state = INITIAL_STATE;
     this.closeModal = this.closeModal.bind(this);
+    this.goEdit = this.goEdit.bind(this);
+    this.goNew = this.goNew.bind(this);
   }
 
   componentWillMount() {
@@ -48,9 +50,15 @@ class ImmobileList extends Component {
     });
   }
 
-  goToImmobile(id) {
+  goEdit(id) {
     const { router } = this.props;
-    const url = `${router.location.pathname}/${id}`;
+    const url = `${router.location.pathname}/edit/${id}`;
+    this.props.router.push(url);
+  }
+
+  goNew() {
+    const { router } = this.props;
+    const url = `${router.location.pathname}/new`;
     this.props.router.push(url);
   }
 
@@ -83,7 +91,7 @@ class ImmobileList extends Component {
             <h2>Imóveis</h2>
           </CardHeader>
           <CardContent padding="0">
-            <Table rowClick={ immobile => this.goToImmobile(immobile._id) }
+            <Table rowClick={ immobile => this.goEdit(immobile._id) }
               pallet={ tablePallet } rows={ immobiles }
               columns={ tableColumns } actions={ tableActions } 
             />
@@ -95,7 +103,7 @@ class ImmobileList extends Component {
         >
           Deseja realmente remover o imóvel?
         </Modal>
-        <FixedButton title="Cadastrar" icon="plus" color="var(--blue)"/>
+        <FixedButton title="Cadastrar" onClick={ this.goNew } icon="plus" color="var(--blue)"/>
       </div>
     );
   }

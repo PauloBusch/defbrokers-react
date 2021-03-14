@@ -1,43 +1,40 @@
 import './PhotoList.css';
 
 import React from 'react';
+import { arrayInsert, arrayRemove } from 'redux-form';
+
 import Table from '../../../../../common/table/Table';
 import ImmobileFormListBase from './../ImmobileFormListBase';
 import image from '../../immobile-list/image/image';
 import PhotoField from './photo-field/PhotoField';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export default class PhotoList extends ImmobileFormListBase {
-  add(differential) {
-
-  }
-  
-  remove(differential) {
-
+class PhotoList extends ImmobileFormListBase {
+  constructor(props) {
+    super(props);
+    this.name = 'photos';
   }
 
   render() {
-    const tableActions = [
-      { icon: 'plus', title: 'Adicionar', color: 'green', click: this.add.bind(this) },
-      { icon: 'trash-alt', title: 'Remover', color: 'red', click: this.remove.bind(this) },
-    ];
     const tableColumns = [
-      { prop: 'image', label: 'Imagem', flex: 10, template: image },
-      { prop: 'file', label: 'Arquivo', flex: 70, template: PhotoField }
+      { prop: 'image', label: 'Imagem', flex: 15, template: image },
+      { prop: 'file', label: 'Arquivo', flex: 65, template: PhotoField }
     ];
-    const tablePallet = {
-      text: 'white',
-      fill: 'var(--blue)'
-    };
 
     const { rows } = this.props;
+    if (!rows.some(r => r === '')) rows.push('');
     return (
       <div className="photo-list immobile-form-list">
       <label>Fotos:</label>
         <Table rows={ rows.map(p => ({ image: p, file: p })) } 
-          pallet={ tablePallet } flexAction={ 20 }
-          actions={ tableActions } columns={ tableColumns }
+          pallet={ this.tablePallet } flexAction={ 20 }
+          actions={ this.tableActions } columns={ tableColumns }
         />
       </div>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => bindActionCreators({ arrayInsert, arrayRemove }, dispatch);
+export default connect(null, mapDispatchToProps)(PhotoList);

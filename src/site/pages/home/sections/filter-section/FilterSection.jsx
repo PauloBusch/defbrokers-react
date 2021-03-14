@@ -8,6 +8,7 @@ import Select from '../../../../../common/fields/select/Select';
 import Input from '../../../../../common/fields/input/Input';
 import SubmitButton from '../../../../../common/buttons/submit/SubmitButton';
 import Row from '../../../../../common/row/Row';
+import { connect } from 'react-redux';
 
 const INITIAL_VALUES = {
   type: 'aluguel',
@@ -23,19 +24,15 @@ class FilterSection extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
-    const types = [
-      { text: 'Aluguel', value: 'aluguel' },
-      { text: 'Venda', value: 'venda' },
-    ];
+    const { handleSubmit, operations } = this.props;
 
     return (
       <Section id="search">
         <Form id="form-search" onSubmit={ handleSubmit }>
           <h3>Encontre seu imóvel</h3>
           <Row>
-            <Field name="type" placeholder="Tipo" 
-              flex="100" component={ Select } options={ types }
+            <Field name="type" placeholder="Operação" 
+              flex="100" component={ Select } options={ operations }
             />
           </Row>
           <Row>
@@ -53,4 +50,6 @@ class FilterSection extends Component {
   }
 }
 
-export default reduxForm({ form: 'search-form', destroyOnUnmount: false })(FilterSection);
+const filterForm = reduxForm({ form: 'search-form', destroyOnUnmount: false })(FilterSection);
+const mapStateToProps = state => ({ operations: state.operations });
+export default connect(mapStateToProps)(filterForm);

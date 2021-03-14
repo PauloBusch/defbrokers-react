@@ -2,7 +2,7 @@ import './ImmobileForm.css';
 
 import React from 'react';
 import { withRouter } from 'react-router';
-import { Field, Form, reduxForm } from 'redux-form';
+import { Field, Form, formValueSelector, reduxForm } from 'redux-form';
 
 import FormBase from '../../../../common/form/FormBase';
 import Row from '../../../../common/row/Row';
@@ -14,39 +14,64 @@ import TextArea from './../../../../common/fields/textarea/TextArea';
 import File from '../../../../common/fields/file/File';
 import DifferentialList from './differential-list/DifferentialList';
 import PhotoList from './photo-list/PhotoList';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { loadForm, submitForm, create, update } from './../../../reducers/immobile/ImmobileActions';
+import { getList } from './../../../reducers/section/SectionActions';
+import { getTypes } from './../../../reducers/type/TypeActions';
+
+const DEFAULT_STATE = { 
+  address: { uf: 'PR' },
+  differentials: [],
+  photos: []
+};
 
 class ImmobileForm extends FormBase {
   constructor(props) {
     super(props);
+    if (!this.id) {
+      this.props.initialize(DEFAULT_STATE);
+    }
     this.title = 'Imóvel';
+    this.props.getList();
+    this.props.getTypes();
+    this.submit = this.submit.bind(this);
+  }
+
+  prepareValues(raw) {
+    const { differentials, photos } = raw;
+    raw.differentials = differentials.filter(d => d);
+    raw.photos = photos.filter(d => d);
+    return raw;
+  }
+
+  submit(raw) {
+    const values = this.prepareValues(raw);
+    if (this.id)
+      this.props.update(values);
+    else
+      this.props.create(values);
+
+    this.goBack();
   }
 
   form() {
-    const differentials = [
-      'Casa com picina'
-    ];
+    const differentials = this.props.differentials || [];
+    const photos = this.props.photos || [];
 
-    const photos = [
-      'images/immobiles/imovel1.webp',
-      'images/immobiles/imovel2.webp'
-    ];
-
-    const types = ['CASA', 'KITNET', 'CONDOMÍNIO', 'SOBRADO'];
-    const sections = ['Sessão 1', 'Sessão 2'];
-    const operations = ['COMPRA', 'ALUGUEL'];
-    const states = ['PR', 'MG'];
+    const { handleSubmit, types, states, sections, operations } = this.props;
 
     return (
-      <Form id="immobile-form" onSubmit={ () => { } }>
+      <Form id="immobile-form" onSubmit={ handleSubmit(this.submit) }>
         <Row>
           <Field name="name" type="text" label="Nome" placeholder="Informe o nome"
             flex="25" component={ Input } validate={ required }
           />
           <Field name="type" label="Tipo" placeholder="Informe o tipo"
-            flex="25" component={ Select } options={ types } validate={ required }
+            flex="25" component={ Select } options={ types } insert validate={ required }
           />
           <Field name="section" label="Sessão" placeholder="Informe a sessão"
-            flex="25" component={ Select } options={ sections } validate={ required }
+            flex="25" component={ Select } options={ sections } insert validate={ required }
           />
           <Field name="realtorPhone" type="text" label="Telefone do corretor" placeholder="Informe o telefone do corretor"
             flex="25" component={ Input } validate={ [required, phone] }
@@ -99,4 +124,15 @@ class ImmobileForm extends FormBase {
   }
 }
 
-export default reduxForm({ form: 'immobile-form' })(withRouter(ImmobileForm));
+const immobileForm = reduxForm({ form: 'immobile-form' })(withRouter(ImmobileForm));
+const selector = formValueSelector('immobile-form');
+const mapStateToProps = state => ({ 
+  states: state.state,
+  types: state.types,
+  sections: state.section,
+  operations: state.operations,
+  differentials: selector(state, 'differentials'), 
+  photos: selector(state, 'photos') 
+});
+const mapDispatchToProps = dispatch => bindActionCreators({ getList, getTypes, loadForm, submitForm, create, update }, dispatch);
+export default connect(mapStateToProps, mapDispatchToProps)(immobileForm);

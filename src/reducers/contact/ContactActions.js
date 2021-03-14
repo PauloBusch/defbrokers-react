@@ -14,6 +14,16 @@ export function getContact() {
   };
 }
 
+export function loadForm() {
+  return dispatch => {
+    axios.get(BASE_URL)
+      .then((resp) => { 
+        dispatch(initialize('contact-form', resp.data));
+      })
+      .catch(() => toastr.error('Erro', 'Falha ao carregar o contato!'));
+  };
+}
+
 export function submitForm() {
   return submit('contact-form');
 }
@@ -28,15 +38,5 @@ export function update(values) {
   return {
     type: CONTACT_UPDATED,
     payload: request
-  };
-}
-
-export function loadForm() {
-  return dispatch => {
-    axios.get(BASE_URL)
-      .then((resp) => { 
-        dispatch(initialize('contact-form', resp.data));
-      })
-      .catch(() => toastr.error('Erro', 'Falha ao carregar o contato!'));
   };
 }

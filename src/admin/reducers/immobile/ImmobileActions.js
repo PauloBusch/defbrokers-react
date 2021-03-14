@@ -1,9 +1,7 @@
 import axios from 'axios';
 import { toastr } from 'react-redux-toastr';
-import { 
-  IMMOBILE_FETCHED, 
-  IMMOBILE_DELETED 
-} from './ImmobileActionsTypes';
+import { initialize, submit } from 'redux-form';
+import { IMMOBILE_FETCHED, IMMOBILE_DELETED } from './ImmobileActionsTypes';
 
 const BASE_URL = 'http://localhost:3003/api/immobiles';
 
@@ -15,6 +13,28 @@ export function getList() {
   };
 }
 
+export function loadForm(id) {
+  return dispatch => {
+    axios.get(`${BASE_URL}/${id}`)
+      .then((resp) => { 
+        dispatch(initialize('immobile-form', resp.data));
+      })
+      .catch(() => toastr.error('Erro', 'Falha ao carregar o imóvel!'));
+  };
+}
+
+export function submitForm() {
+  return submit('immobile-form');
+}
+
+export function create(values) {
+  return request(values, 'post');
+}
+
+export function update(values) {
+  return request(values, 'put');
+}
+
 export function remove(id) {
   return dispatch => {
     axios.delete(`${BASE_URL}/${id}`)
@@ -23,5 +43,18 @@ export function remove(id) {
         dispatch({ type: IMMOBILE_DELETED, payload: id });
       })
       .catch(() => toastr.error('Erro', 'Falha ao remover imóvel!'));
+  };
+}
+
+function request(values, method) {
+  return dispatch => {
+    const id = values._id ? values._id : '';
+    const type = id ? 'atualizado' : 'criado';
+    axios[method](`${BASE_URL}/${id}`, values)
+    .then(resp => {
+      toastr.success('Sucesso', `Imóvel ${type} com sucesso!`);
+      dispatch(getList());
+    })
+    .catch(() => toastr.error('Erro', `Falha ao salvar imóvel!`));
   };
 }

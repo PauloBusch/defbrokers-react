@@ -15,6 +15,20 @@ export function getSlides() {
   };
 }
 
+export function loadForm(id) {
+  return dispatch => {
+    axios.get(`${BASE_URL}/${id}`)
+      .then((resp) => { 
+        dispatch(initialize('slide-form', resp.data));
+      })
+      .catch(() => toastr.error('Erro', 'Falha ao carregar o slide!'));
+  };
+}
+
+export function submitForm() {
+  return submit('slide-form');
+}
+
 export function create(values) {
   return request(values, 'post');
 }
@@ -32,20 +46,6 @@ export function remove(id) {
       })
       .catch(() => toastr.error('Erro', 'Falha ao remover slide!'));
   };
-}
-
-export function loadForm(id) {
-  return dispatch => {
-    axios.get(`${BASE_URL}/${id}`)
-      .then((resp) => { 
-        dispatch(initialize('slide-form', resp.data));
-      })
-      .catch(() => toastr.error('Erro', 'Falha ao carregar o slide!'));
-  };
-}
-
-export function submitForm() {
-  return submit('slide-form');
 }
 
 function request(values, method) {

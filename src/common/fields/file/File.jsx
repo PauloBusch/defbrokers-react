@@ -41,13 +41,14 @@ export default class File extends FieldBase {
   }
 
   field() {
-    const { button, placeholder } = this.props;
+    const { button, placeholder, className } = this.props;
 
     return (
-      <div className="form-control file-input" >
+      <div className={ `form-control file-input ${className}` } >
         <button type="button" onClick={ () => this.fileInput.click() }>{ button || 'Selecionar arquivo' }</button>
         <label>{ this.state.name || placeholder || 'Selecione um arquivo...' }</label>
         <input type='file' 
+          name={ this.props.name }
           style={ { display: 'none' } }
           accept={ this.props.accept }
           onChange={ this.onChange }

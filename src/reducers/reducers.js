@@ -7,9 +7,17 @@ import ContactReducer from './contact/ContactReducer';
 import SliderReducer from './slider/SliderReducer';
 import SectionsReducer from '../site/reducers/section/SectionReducer';
 import ImmobileReducer from '../admin/reducers/immobile/ImmobileReducer';
+import StateReducer from './state/StateReducer';
+import OperationReducer from './operation/OperationReducer';
+import SectionReducer from '../admin/reducers/section/SectionReducer';
+import TypeReducer from '../admin/reducers/type/TypeReducer';
 
 const rootReducer = combineReducers({
+  types: TypeReducer,
+  state: StateReducer,
   contact: ContactReducer,
+  section: SectionReducer,
+  operations: OperationReducer,
   sections: SectionsReducer,
   immobiles: ImmobileReducer,
   slider: SliderReducer,

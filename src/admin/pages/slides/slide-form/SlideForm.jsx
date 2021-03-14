@@ -28,10 +28,6 @@ class SlideForm extends FormBase {
     this.title = 'Slide';
   }
 
-  getData(id) {
-    this.props.loadForm(id);
-  }
-
   form() {
     const positionXOptions = [
       { text: 'Esquerda', value: 'left' },
@@ -51,10 +47,10 @@ class SlideForm extends FormBase {
             flex="25" component={ File } validate={ required }
           />
           <Field name="positionX" label="Posição Horizontal" 
-            flex="25" component={ Select } options={ positionXOptions } validate={ required }
+            flex="25" component={ Select } options={ positionXOptions } object validate={ required }
           />
           <Field name="positionY" label="Posição Vertical" 
-            flex="25" component={ Select } options={ positionYOptions } validate={ required }
+            flex="25" component={ Select } options={ positionYOptions } object validate={ required }
           />
         </Row>
       </Form>

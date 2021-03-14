@@ -30,7 +30,9 @@ export default class FormBase extends Component {
     return pathname.substring(index).replace(regex, '');
   }
 
-  getData(id) { }
+  getData(id) { 
+    this.props.loadForm(id);
+  }
 
   getTitle() {
     if (this.id)

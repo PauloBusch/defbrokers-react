@@ -3,8 +3,7 @@ import React from 'react';
 
 export default props => {
   const { image } = props.row;
-  if (!image) return false;
   return (
-    <img className="immobile-image" src={ image } alt="Foto"/>
+    <img className="immobile-image" src={ image || '/images/defbrokers/image-icon.webp' } alt="Foto"/>
   );
 }
