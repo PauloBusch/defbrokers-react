@@ -3,9 +3,10 @@ import { toastr } from 'react-redux-toastr';
 import { submit, initialize } from 'redux-form';
 
 import { CONTACT_FETCHED, CONTACT_UPDATED } from './ContactActionsTypes';
+import { API_HOST } from './../../consts';
 
-const OAPI_URL = 'http://localhost:3003/oapi/contact/602da0bfa365f8621842205a';
-const API_URL = 'http://localhost:3003/api/contact/602da0bfa365f8621842205a';
+const OAPI_URL = `${API_HOST}/oapi/contact/602da0bfa365f8621842205a`;
+const API_URL = `${API_HOST}/api/contact/602da0bfa365f8621842205a`;
 
 export function getContact() {
   const request = axios.get(OAPI_URL);

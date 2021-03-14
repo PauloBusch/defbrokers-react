@@ -3,9 +3,10 @@ import { toastr } from 'react-redux-toastr';
 import { initialize, submit } from 'redux-form';
 
 import { SLIDES_FETCHED, SLIDE_FETCHED, SLIDE_DELETED } from './SliderActionsTypes';
+import { API_HOST } from './../../consts';
 
-const OAPI_URL = 'http://localhost:3003/oapi/slides';
-const API_URL = 'http://localhost:3003/api/slides';
+const OAPI_URL = `${API_HOST}/oapi/slides`;
+const API_URL = `${API_HOST}/api/slides`;
 
 export function getSlides() {
   const request = axios.get(OAPI_URL);

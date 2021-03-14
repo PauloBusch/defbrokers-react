@@ -2,9 +2,10 @@ import axios from 'axios';
 import { toastr } from 'react-redux-toastr';
 import { initialize, submit } from 'redux-form';
 import { IMMOBILE_FETCHED, IMMOBILE_DELETED } from './ImmobileActionsTypes';
+import { API_HOST } from './../../../consts';
 
-const API_URL = 'http://localhost:3003/api/immobiles';
-const OAPI_URL = 'http://localhost:3003/oapi/immobiles';
+const API_URL = `${API_HOST}/api/immobiles`;
+const OAPI_URL = `${API_HOST}/oapi/immobiles`;
 
 export function getList() {
   const request = axios.get(OAPI_URL);

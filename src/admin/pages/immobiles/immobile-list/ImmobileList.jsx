@@ -11,7 +11,7 @@ import CardHeader from '../../../partials/card/card-header/CardHeader';
 import Table from '../../../../common/table/Table';
 import monetary from './../../../../common/formatters/monetary';
 import { getList, remove } from './../../../reducers/immobile/ImmobileActions';
-import image from './image/image';
+import image from './image/Image';
 import Modal from '../../../../common/modal/Modal';
 import FixedButton from '../../../../common/buttons/fixed/FixedButton';
 

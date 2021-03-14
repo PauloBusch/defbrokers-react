@@ -5,7 +5,7 @@ import { arrayInsert, arrayRemove } from 'redux-form';
 
 import Table from '../../../../../common/table/Table';
 import ImmobileFormListBase from './../ImmobileFormListBase';
-import image from '../../immobile-list/image/image';
+import image from '../../immobile-list/image/Image';
 import PhotoField from './photo-field/PhotoField';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';

@@ -9,7 +9,7 @@ import Card from '../../../partials/card/Card';
 import CardContent from '../../../partials/card/card-content/CardContent';
 import CardHeader from '../../../partials/card/card-header/CardHeader';
 import { getSlides, remove } from './../../../../reducers/slider/SliderActions';
-import image from '../../immobiles/immobile-list/image/image';
+import image from '../../immobiles/immobile-list/image/Image';
 import Table from './../../../../common/table/Table';
 import Modal from '../../../../common/modal/Modal';
 import FixedButton from '../../../../common/buttons/fixed/FixedButton';
