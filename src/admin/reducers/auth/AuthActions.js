@@ -2,8 +2,9 @@ import { toastr } from 'react-redux-toastr';
 import axios from 'axios';
 
 import { USER_FETCHED, TOKEN_VALIDATED } from './AuthActionTypes';
+import { API_HOST } from './../../../consts';
 
-const OAPI_URL = 'http://localhost:3003/oapi';
+const OAPI_URL = `${API_HOST}/oapi`;
 
 export function login(values) {
   return dispatch => {

@@ -1,10 +1,11 @@
 import axios from 'axios';
+import { API_HOST } from './../../../consts';
 import { 
   SECTION_SEARCHED,
   SECTION_FETCHED
 } from './SectionActionsTypes';
 
-const OAPI_URL = 'http://localhost:3003/oapi/immobiles';
+const OAPI_URL = `${API_HOST}/oapi/immobiles`;
 
 export function getList() {
   const request = axios.get(OAPI_URL);
