@@ -17,6 +17,7 @@ import SlideList from './admin/pages/slides/slide-list/SlideList';
 import ImmobileList from './admin/pages/immobiles/immobile-list/ImmobileList';
 import ImmobileForm from './admin/pages/immobiles/immobile-form/ImmobileForm';
 import SlideForm from './admin/pages/slides/slide-form/SlideForm';
+import AuthOrApp from './admin/AuthOrApp';
 
 const store = applyMiddleware(thunk, promise)(createStore)(Reducers);
 export default props => (
@@ -27,7 +28,7 @@ export default props => (
         <Route path="work" component={ Work }/>
         <Route path="immobile/:id" component={ Immobile }/>
       </Route>
-      <Route exact path="/admin" component={ AdminLayout }>
+      <Route exact path="/admin" component={ AuthOrApp }>
         <IndexRoute component={ Contact }/>
         <Route path="slides" component={ SlideList }/>
         <Route path="slides/new" component={ SlideForm }/>

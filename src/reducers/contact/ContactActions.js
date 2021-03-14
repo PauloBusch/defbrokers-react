@@ -4,10 +4,11 @@ import { submit, initialize } from 'redux-form';
 
 import { CONTACT_FETCHED, CONTACT_UPDATED } from './ContactActionsTypes';
 
-const BASE_URL = 'http://localhost:3003/api/contact/602da0bfa365f8621842205a';
+const OAPI_URL = 'http://localhost:3003/oapi/contact/602da0bfa365f8621842205a';
+const API_URL = 'http://localhost:3003/api/contact/602da0bfa365f8621842205a';
 
 export function getContact() {
-  const request = axios.get(BASE_URL);
+  const request = axios.get(OAPI_URL);
   return { 
     type: CONTACT_FETCHED,
     payload: request
@@ -16,7 +17,7 @@ export function getContact() {
 
 export function loadForm() {
   return dispatch => {
-    axios.get(BASE_URL)
+    axios.get(API_URL)
       .then((resp) => { 
         dispatch(initialize('contact-form', resp.data));
       })
@@ -29,7 +30,7 @@ export function submitForm() {
 }
 
 export function update(values) {
-  const request = axios.put(BASE_URL, values)
+  const request = axios.put(API_URL, values)
     .then(resp => { 
       toastr.success('Sucesso', 'Contato atualizado com sucesso!');
       return resp;

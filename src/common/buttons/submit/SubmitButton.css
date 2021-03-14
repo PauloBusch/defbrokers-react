@@ -18,6 +18,12 @@ button[type="submit"]:hover {
   background-color: #0059b9;
 }
 
+button[type="submit"][disabled] {
+  cursor: default;
+  background-color: #dddddd;
+  color: #aaaaaa;
+}
+
 @media only screen and (max-width: 600px) {
   button[type="submit"] {
     font-size: 15px;

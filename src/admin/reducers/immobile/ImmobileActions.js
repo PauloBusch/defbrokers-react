@@ -3,10 +3,11 @@ import { toastr } from 'react-redux-toastr';
 import { initialize, submit } from 'redux-form';
 import { IMMOBILE_FETCHED, IMMOBILE_DELETED } from './ImmobileActionsTypes';
 
-const BASE_URL = 'http://localhost:3003/api/immobiles';
+const API_URL = 'http://localhost:3003/api/immobiles';
+const OAPI_URL = 'http://localhost:3003/oapi/immobiles';
 
 export function getList() {
-  const request = axios.get(BASE_URL);
+  const request = axios.get(OAPI_URL);
   return { 
     type: IMMOBILE_FETCHED,
     payload: request
@@ -15,7 +16,7 @@ export function getList() {
 
 export function loadForm(id) {
   return dispatch => {
-    axios.get(`${BASE_URL}/${id}`)
+    axios.get(`${API_URL}/${id}`)
       .then((resp) => { 
         dispatch(initialize('immobile-form', resp.data));
       })
@@ -37,7 +38,7 @@ export function update(values) {
 
 export function remove(id) {
   return dispatch => {
-    axios.delete(`${BASE_URL}/${id}`)
+    axios.delete(`${API_URL}/${id}`)
       .then(() => { 
         toastr.success('Sucesso', 'Imóvel removido com sucesso!');
         dispatch({ type: IMMOBILE_DELETED, payload: id });
@@ -50,7 +51,7 @@ function request(values, method) {
   return dispatch => {
     const id = values._id ? values._id : '';
     const type = id ? 'atualizado' : 'criado';
-    axios[method](`${BASE_URL}/${id}`, values)
+    axios[method](`${API_URL}/${id}`, values)
     .then(resp => {
       toastr.success('Sucesso', `Imóvel ${type} com sucesso!`);
       dispatch(getList());

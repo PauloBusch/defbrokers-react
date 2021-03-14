@@ -11,6 +11,7 @@ import StateReducer from './state/StateReducer';
 import OperationReducer from './operation/OperationReducer';
 import SectionReducer from '../admin/reducers/section/SectionReducer';
 import TypeReducer from '../admin/reducers/type/TypeReducer';
+import AuthReducer from '../admin/reducers/auth/AuthReducer';
 
 const rootReducer = combineReducers({
   types: TypeReducer,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   immobiles: ImmobileReducer,
   slider: SliderReducer,
   toastr: toastrReducer,
+  auth: AuthReducer,
   form: formReducer
 });
 

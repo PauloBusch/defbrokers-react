@@ -3,7 +3,8 @@
 }
 
 .banner .img {
-  height: 300px;
+  height: 30vw;
+  min-height: 150px;
   background-size: cover;
   background-position: center center;
 }

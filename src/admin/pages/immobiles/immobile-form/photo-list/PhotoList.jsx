@@ -18,17 +18,18 @@ class PhotoList extends ImmobileFormListBase {
 
   render() {
     const tableColumns = [
-      { prop: 'image', label: 'Imagem', flex: 15, template: image },
-      { prop: 'file', label: 'Arquivo', flex: 65, template: PhotoField }
+      { prop: 'image', label: 'Imagem', flex: 20, template: image },
+      { prop: 'file', label: 'Arquivo', flex: 70, template: PhotoField }
     ];
-
+    
     const { rows } = this.props;
     if (!rows.some(r => r === '')) rows.push('');
+
     return (
       <div className="photo-list immobile-form-list">
       <label>Fotos:</label>
         <Table rows={ rows.map(p => ({ image: p, file: p })) } 
-          pallet={ this.tablePallet } flexAction={ 20 }
+          pallet={ this.tablePallet } flexAction={ 10 }
           actions={ this.tableActions } columns={ tableColumns }
         />
       </div>

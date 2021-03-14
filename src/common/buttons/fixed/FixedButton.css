@@ -17,6 +17,11 @@
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
 }
 
+.fixed-button a {
+  color: none;
+  padding: 0;
+}
+
 .fixed-button:hover {
   opacity: 1;
 }

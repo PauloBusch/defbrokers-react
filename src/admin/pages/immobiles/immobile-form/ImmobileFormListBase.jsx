@@ -10,8 +10,7 @@ export default class ImmobileFormListBase extends Component {
     this.remove = this.remove.bind(this);
 
     this.tableActions = [
-      { icon: 'plus', title: 'Adicionar', color: 'green', click: this.add },
-      { icon: 'trash-alt', title: 'Remover', color: 'red', click: this.remove },
+      { icon: 'trash-alt', title: 'Remover', color: 'red', click: this.remove }
     ];
     this.tablePallet = {
       text: 'white',
@@ -24,7 +23,7 @@ export default class ImmobileFormListBase extends Component {
   }
   
   remove(row, index) {
-    if (this.props.rows.length === 1) return false;
+    if (row === '' || this.props.rows.length === 1) return false;
     this.props.arrayRemove('immobile-form', this.name, index);
   }
 }

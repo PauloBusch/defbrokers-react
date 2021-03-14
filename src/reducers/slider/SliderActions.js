@@ -4,10 +4,11 @@ import { initialize, submit } from 'redux-form';
 
 import { SLIDES_FETCHED, SLIDE_FETCHED, SLIDE_DELETED } from './SliderActionsTypes';
 
-const BASE_URL = 'http://localhost:3003/api/slides';
+const OAPI_URL = 'http://localhost:3003/oapi/slides';
+const API_URL = 'http://localhost:3003/api/slides';
 
 export function getSlides() {
-  const request = axios.get(BASE_URL);
+  const request = axios.get(OAPI_URL);
   
   return {  
     type: SLIDES_FETCHED,
@@ -17,7 +18,7 @@ export function getSlides() {
 
 export function loadForm(id) {
   return dispatch => {
-    axios.get(`${BASE_URL}/${id}`)
+    axios.get(`${API_URL}/${id}`)
       .then((resp) => { 
         dispatch(initialize('slide-form', resp.data));
       })
@@ -39,7 +40,7 @@ export function update(values) {
 
 export function remove(id) {
   return dispatch => {
-    axios.delete(`${BASE_URL}/${id}`)
+    axios.delete(`${API_URL}/${id}`)
       .then(() => { 
         toastr.success('Sucesso', 'Slide removido com sucesso!');
         dispatch({ type: SLIDE_DELETED, payload: id });
@@ -52,7 +53,7 @@ function request(values, method) {
   return dispatch => {
     const id = values._id ? values._id : '';
     const type = id ? 'atualizado' : 'criado';
-    axios[method](`${BASE_URL}/${id}`, values)
+    axios[method](`${API_URL}/${id}`, values)
     .then(resp => {
       toastr.success('Sucesso', `Slide ${type} com sucesso!`);
       dispatch(getSlides());

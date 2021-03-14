@@ -17,16 +17,17 @@ class DifferentialList extends ImmobileFormListBase {
 
   render() {
     const tableColumns = [
-      { prop: 'differential', label: 'Diferencial', flex: 75, template: DifferentialField }
+      { prop: 'differential', label: 'Diferencial', flex: 90, template: DifferentialField }
     ];
-
+    
     const { rows } = this.props;
     if (!rows.some(r => r === '')) rows.push('');
+    
     return (
       <div className="differential-list immobile-form-list">
         <label>Diferenciais:</label>
         <Table rows={ rows.map(d => ({ differential: d })) } 
-          pallet={ this.tablePallet } flexAction={ 20 }
+          pallet={ this.tablePallet } flexAction={ 10 }
           actions={ this.tableActions } columns={ tableColumns }
         />
       </div>

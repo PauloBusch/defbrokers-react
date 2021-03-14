@@ -38,6 +38,22 @@ textarea.form-control {
   max-height: 300px;
 }
 
+.field-icon {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.field-icon .form-control {
+  padding-left: 40px;
+}
+
+.field-icon i.icon {
+  cursor: pointer;
+  position: absolute;
+  left: 15px;
+}
+
 @media only screen and (max-width: 600px) {
   .form-control {
     font-size: 15px;

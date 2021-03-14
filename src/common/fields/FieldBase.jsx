@@ -25,11 +25,23 @@ export default class FieldBase extends Component {
         style={ { width: this.getWidth() } }
       >
         { label ? <label htmlFor={ name }>{ label }</label> : false }
-        { this.field() }
+        { this.fieldWithIcon() }
         { errors }
       </div>
     );
   }
 
+  fieldWithIcon() {
+    const { icon } = this.props;
+    const field = this.field();
+    if (!icon) return field;
+    return (
+      <div className="field-icon">
+        <i className={ `icon fas fa-${icon}` }></i>
+        { field }
+      </div>
+    );
+  }
+  
   field() { }
 }
