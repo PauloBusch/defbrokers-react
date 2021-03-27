@@ -12,6 +12,7 @@ import OperationReducer from './operation/OperationReducer';
 import SectionReducer from '../admin/reducers/section/SectionReducer';
 import TypeReducer from '../admin/reducers/type/TypeReducer';
 import AuthReducer from '../admin/reducers/auth/AuthReducer';
+import CurriculumReducer from '../site/reducers/curriculum/CurriculumReducer';
 
 const rootReducer = combineReducers({
   types: TypeReducer,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   operations: OperationReducer,
   sections: SectionsReducer,
   immobiles: ImmobileReducer,
+  curriculum: CurriculumReducer,
   slider: SliderReducer,
   toastr: toastrReducer,
   auth: AuthReducer,
