@@ -1,10 +1,52 @@
 import { toastr } from 'react-redux-toastr';
+import { submit } from 'redux-form';
 import axios from 'axios';
 
-import { USER_FETCHED, TOKEN_VALIDATED } from './AuthActionTypes';
-import { API_HOST } from './../../../consts';
+import { 
+  USER_FETCHED, TOKEN_VALIDATED, FORGOT_PASSWORD_EMAIL_SENDED,
+  FORGOT_PASSWORD_EMAIL_LOADED, FORGOT_PASSWORD_EMAIL_LOADING 
+} from './AuthActionTypes';
+import { API_HOST, WEBSITE_URL } from './../../../consts';
 
 const OAPI_URL = `${API_HOST}/oapi`;
+const API_URL = `${API_HOST}/api`;
+
+export function submitChangePassword() {
+  return submit('change-password-form');
+}
+
+export function changePassword(values) {
+  return dispatch => {
+    axios.post(`${API_URL}/change-password`, values)
+      .then(resp => {
+        toastr.success('Sucesso', `Senha alterada com sucesso!`);
+      })
+      .catch(e => {
+        const { invalidPassword } = e.response.data;
+        if (invalidPassword)
+          return toastr.error('Falha', `A senha atual não é válida!`);
+        toastr.error('Erro', `Falha ao alterar senha!`);
+      });
+  }
+}
+
+export function forgotPassword(values) {
+  return dispatch => {
+    dispatch({ type: FORGOT_PASSWORD_EMAIL_LOADING });
+
+    values.baseUrl = `${WEBSITE_URL}/#/admin/change-password`;
+    axios.post(`${OAPI_URL}/forgot-password`, values)
+      .then(resp => {
+        toastr.success('Sucesso', `Email enviado com sucesso, verifique sua caixa de entrada!`);
+        dispatch({ type: FORGOT_PASSWORD_EMAIL_SENDED });
+        dispatch({ type: FORGOT_PASSWORD_EMAIL_LOADED });
+      })
+      .catch(e => {
+        toastr.error('Erro', `Falha ao enviar email de redifinição!`);
+        dispatch({ type: FORGOT_PASSWORD_EMAIL_LOADED });
+      });
+  }
+}
 
 export function login(values) {
   return dispatch => {

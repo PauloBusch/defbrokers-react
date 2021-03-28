@@ -1,9 +1,14 @@
-import { USER_FETCHED, TOKEN_VALIDATED } from './AuthActionTypes';
+import { 
+  USER_FETCHED, TOKEN_VALIDATED, FORGOT_PASSWORD_EMAIL_SENDED, 
+  FORGOT_PASSWORD_EMAIL_LOADED, FORGOT_PASSWORD_EMAIL_LOADING 
+} from './AuthActionTypes';
 
 const userKey = 'application-user';
 const INITIAL_STATE = {
   user: getLocalUser(),
-  validToken: false
+  validToken: false,
+  sendedForgotPasswordEmail: false,
+  sendedForgotPasswordEmailLoading: false
 };
 
 function getLocalUser() {
@@ -21,6 +26,12 @@ export default (state = INITIAL_STATE, action) => {
     case USER_FETCHED:
       localStorage.setItem(userKey, JSON.stringify(action.payload));
       return { ...state, user: action.payload, validToken: true };
+    case FORGOT_PASSWORD_EMAIL_SENDED:
+      return { ...state, sendedForgotPasswordEmail: true };
+    case FORGOT_PASSWORD_EMAIL_LOADING:
+      return { ...state, sendedForgotPasswordEmailLoading: true };
+    case FORGOT_PASSWORD_EMAIL_LOADED:
+      return { ...state, sendedForgotPasswordEmailLoading: false };
     default:
       return state;
   }
