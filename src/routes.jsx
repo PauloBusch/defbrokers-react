@@ -19,6 +19,7 @@ import ImmobileForm from './admin/pages/immobiles/immobile-form/ImmobileForm';
 import SlideForm from './admin/pages/slides/slide-form/SlideForm';
 import AuthOrApp from './admin/AuthOrApp';
 import ForgotPassword from './admin/auth/forgot-password/ForgotPassword';
+import ChangePassword from './admin/auth/change-password/ChangePassword';
 
 const store = applyMiddleware(thunk, promise)(createStore)(Reducers);
 export default props => (
@@ -29,6 +30,7 @@ export default props => (
         <Route path="work" component={ Work }/>
         <Route path="immobile/:id" component={ Immobile }/>
       </Route>
+      <Route exact path="/admin/change-password" component={ ChangePassword } />
       <Route exact path="/admin/forgot-password" component={ ForgotPassword } />
       <Route exact path="/admin/forgot-password/:email" component={ ForgotPassword } />
       <Route exact path="/admin" component={ AuthOrApp }>

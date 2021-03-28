@@ -18,6 +18,12 @@
   display: inline-block;
 }
 
+.header-admin .actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .header-admin i {
   padding: 0 15px;
   font-size: 2rem;
@@ -29,7 +35,6 @@
 
 .header-admin #change-password {
   outline: none;
-  margin-right: 50px;
   cursor: pointer;
   border: none;
   color: white;
@@ -41,4 +46,16 @@
 
 .header-admin #change-password:hover {
   background-color: blue;
+}
+
+.header-admin #icon-logout {
+  padding: 15px 0 15px 15px;
+  margin-right: 50px;
+  font-size: 25px;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.header-admin #icon-logout:hover {
+  color: rgba(255, 255, 255, 0.726);
 }

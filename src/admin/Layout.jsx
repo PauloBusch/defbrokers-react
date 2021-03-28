@@ -9,8 +9,8 @@ import Sidenav from './partials/sidenav/Sidenav';
 import Content from './partials/content/Content';
 import Toastr from '../common/messages/toastr';
 import Modal from '../common/modal/Modal';
-import ChangePassword from './auth/change-password/ChangePassword';
-import { submitChangePassword, changePassword } from './reducers/auth/AuthActions';
+import ChangePassword from './partials/change-password/ChangePassword';
+import { submitChangePassword, changePassword, logout } from './reducers/auth/AuthActions';
 import { getContact } from './../reducers/contact/ContactActions';
 
 const INITIAL_STATE = { showChangePassword: false };
@@ -20,6 +20,7 @@ class Layout extends Component {
     super(props);
 
     this.state = INITIAL_STATE;
+    this.openChangePassword = this.openChangePassword.bind(this);
     this.changePassword = this.changePassword.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
@@ -32,12 +33,17 @@ class Layout extends Component {
     this.setState({ ...this.state, showChangePassword: false });
   }
 
-  changePassword() {
+  openChangePassword() {
     this.setState({ ...this.state, showChangePassword: true });
   }
 
+  changePassword(values) {
+    const { changePassword } = this.props;
+    changePassword(values, this.closeModal);
+  }
+
   render() {
-    const { submitChangePassword, changePassword } = this.props;
+    const { submitChangePassword, logout } = this.props;
 
     const modalActions = [
       { text: 'CANCELAR', pallet: { fill: '#c8c8c8', text: 'black' }, click: this.closeModal },
@@ -46,7 +52,7 @@ class Layout extends Component {
 
     return (
       <div className="container-admin">
-        <Header changePassword={ this.changePassword }/>
+        <Header changePassword={ this.openChangePassword } logout={ logout }/>
         <div className="row-admin">
           <Sidenav />
           <Content>
@@ -58,12 +64,12 @@ class Layout extends Component {
           actions={ modalActions } show={ this.state.showChangePassword } 
           onClose={ this.closeModal }
         >
-         <ChangePassword onSubmit={ changePassword }/> 
+         <ChangePassword onSubmit={ this.changePassword }/> 
         </Modal>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ submitChangePassword, changePassword, getContact }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ submitChangePassword, changePassword, getContact, logout }, dispatch);
 export default connect(null, mapDispatchToProps)(Layout);

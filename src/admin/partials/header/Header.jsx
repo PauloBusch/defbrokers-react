@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
   render() {
+    const { changePassword, logout } = this.props;
+
     return (
       <header className="header-admin">
         <div className="title">
@@ -12,7 +14,8 @@ class Header extends Component {
           <h1>Painel Administrativo - { this.props.name || 'Website' }</h1>
         </div>
         <div className="actions">
-          <button type="button" id="change-password" onClick={ this.props.changePassword }>Alterar senha</button>
+          <button type="button" id="change-password" onClick={ changePassword }>Alterar senha</button>
+          <i id="icon-logout" title="Sair" className="fas fa-sign-out-alt" onClick={ logout }></i>
         </div>
       </header>
     );

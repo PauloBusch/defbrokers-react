@@ -7,6 +7,7 @@ const userKey = 'application-user';
 const INITIAL_STATE = {
   user: getLocalUser(),
   validToken: false,
+  validatedToken: false,
   sendedForgotPasswordEmail: false,
   sendedForgotPasswordEmailLoading: false
 };
@@ -20,9 +21,9 @@ function getLocalUser() {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case TOKEN_VALIDATED:
-      if(action.payload) return { ...state, validToken: true };
+      if(action.payload) return { ...state, validToken: true, validatedToken: true };
       localStorage.removeItem(userKey);
-      return { ...state, validToken: false, user: null };
+      return { ...state, validToken: false, validatedToken: true, user: null };
     case USER_FETCHED:
       localStorage.setItem(userKey, JSON.stringify(action.payload));
       return { ...state, user: action.payload, validToken: true };

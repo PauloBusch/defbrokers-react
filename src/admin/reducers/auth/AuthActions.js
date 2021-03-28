@@ -15,16 +15,30 @@ export function submitChangePassword() {
   return submit('change-password-form');
 }
 
-export function changePassword(values) {
+export function changePassword(values, success) {
   return dispatch => {
     axios.post(`${API_URL}/change-password`, values)
       .then(resp => {
         toastr.success('Sucesso', `Senha alterada com sucesso!`);
+        if (success) success();
       })
       .catch(e => {
         const { invalidPassword } = e.response.data;
         if (invalidPassword)
           return toastr.error('Falha', `A senha atual não é válida!`);
+        toastr.error('Erro', `Falha ao alterar senha!`);
+      });
+  }
+}
+
+export function changePasswordWithToken(values) {
+  return dispatch => {
+    axios.post(`${OAPI_URL}/change-password`, values)
+      .then(resp => {
+        toastr.success('Sucesso', `Senha alterada com sucesso!`);
+        dispatch(logout());
+      })
+      .catch(e => {
         toastr.error('Erro', `Falha ao alterar senha!`);
       });
   }
@@ -62,7 +76,10 @@ export function login(values) {
 }
 
 export function logout() {
-  return { type: TOKEN_VALIDATED, payload: false };
+  return dispatch => {
+    dispatch({ type: TOKEN_VALIDATED, payload: false });
+    window.location.href = '/#/admin';
+  };
 }
 
 export function validateToken(token) {
