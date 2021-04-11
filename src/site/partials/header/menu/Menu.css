@@ -11,6 +11,7 @@
 
 .menu li a,
 .menu li a i {
+  transition: .2s;
   color: black;
   padding: 15px 10px;
   display: inline-block;
@@ -22,6 +23,7 @@
 }
 
 .menu li a i {
+  font-size: 25px;
   padding: 15px 0;
 }
 
@@ -83,5 +85,9 @@
   .menu li a:hover ~ .dropdown {
     display: none;
     transform: scaleY(0);
+  }
+
+  .menu .icons {
+    display: flex;
   }
 }
