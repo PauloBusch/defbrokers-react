@@ -36,6 +36,11 @@
   text-decoration: none;
 }
 
+.footer-site .contact i {
+  text-align: center;
+  width: 15px;
+}
+
 .footer-site a:hover {
   text-decoration: underline;
 }

@@ -10,7 +10,7 @@ import Logo from '../../../common/logo/Logo';
 
 class Footer extends Component {
   render() {
-    const { name, email, whatsapp } = this.props;
+    const { name, email, whatsapp, facebookLabel, facebookLink, instagramLabel, instagramLink } = this.props;
     const year = new Date().getFullYear();
     return (
       <footer className="footer-site">
@@ -22,12 +22,16 @@ class Footer extends Component {
           <li className="contact">
             <h3>FALE CONOSCO</h3>
             <a href={ generateAddContactLink(whatsapp) } target="_blank">
-              <i className="fab fa-whatsapp"></i>&nbsp;
-              { whatsapp }
+              <i className="fab fa-whatsapp"></i> { whatsapp }
             </a>
             <a href="mailto:contato@defbrokers.com.br">
-              <i className="far fa-envelope"></i>&nbsp;
-              { email }
+              <i className="far fa-envelope"></i> { email }
+            </a>
+            <a href={ instagramLink }>
+              <i className="fab fa-instagram"></i> { instagramLabel }
+            </a>
+            <a href={ facebookLink }>
+              <i className="fab fa-facebook-f"></i> { facebookLabel }
             </a>
           </li>        
           <li className="about">
